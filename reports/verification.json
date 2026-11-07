@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-11-07T12:20:27.282882+00:00",
+  "python": "3.13.5",
+  "python_311_runtime_verified": false,
+  "python_311_syntax": {
+    "status": "passed",
+    "files": 17
+  },
+  "core_tests": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_freeze_and_splits (test_core.DataTests.test_freeze_and_splits) ... ok\ntest_reject_tampering (test_core.DataTests.test_reject_tampering) ... ok\ntest_invalid (test_core.MetricTests.test_invalid) ... ok\ntest_known_confusion (test_core.MetricTests.test_known_confusion) ... ok\ntest_measurement (test_core.RuleTests.test_measurement) ... ok\ntest_negation_and_future (test_core.RuleTests.test_negation_and_future) ... ok\ntest_structural_fixtures (test_core.RuleTests.test_structural_fixtures) ... ok\ntest_technology_boundaries_aliases (test_core.RuleTests.test_technology_boundaries_aliases) ... ok\ntest_invalid (test_core.TextTests.test_invalid) ... ok\ntest_normalization_preserves_case_accents (test_core.TextTests.test_normalization_preserves_case_accents) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 14.266s\n\nOK\n"
+  },
+  "available_modules": {
+    "pydantic": false,
+    "pytest": false,
+    "torch": false,
+    "transformers": false,
+    "sklearn": false
+  },
+  "not_executed": [
+    "pytest_contract",
+    "pytest_ml_smoke",
+    "real_model_loading",
+    "finetuning",
+    "frozen_encoder_baseline",
+    "final_test_benchmark",
+    "docker_offline",
+    "clean_python311_reproduction"
+  ],
+  "lockfile_exists": false
+}

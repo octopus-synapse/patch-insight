@@ -1,0 +1,160 @@
+{
+  "$defs": {
+    "Component": {
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/State"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score"
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "title": "Component",
+      "type": "object"
+    },
+    "State": {
+      "enum": [
+        "present",
+        "absent",
+        "unknown"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "Versions": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "0.1.0",
+          "default": "0.1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "model_version": {
+          "title": "Model Version",
+          "type": "string"
+        },
+        "rules_version": {
+          "const": "0.1.0",
+          "default": "0.1.0",
+          "title": "Rules Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model_version"
+      ],
+      "title": "Versions",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "text": {
+      "title": "Text",
+      "type": "string"
+    },
+    "components": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Component"
+      },
+      "title": "Components",
+      "type": "object"
+    },
+    "structures": {
+      "items": {
+        "enum": [
+          "XYZ",
+          "STAR",
+          "Action–Result",
+          "Action–Technology"
+        ],
+        "type": "string"
+      },
+      "title": "Structures",
+      "type": "array"
+    },
+    "task": {
+      "$ref": "#/$defs/State"
+    },
+    "technologies": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Technologies",
+      "type": "array"
+    },
+    "diagnostics": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Diagnostics",
+      "type": "array"
+    },
+    "truncated": {
+      "title": "Truncated",
+      "type": "boolean"
+    },
+    "tokens": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tokens"
+    },
+    "versions": {
+      "$ref": "#/$defs/Versions"
+    },
+    "backend": {
+      "enum": [
+        "heuristic",
+        "bert"
+      ],
+      "title": "Backend",
+      "type": "string"
+    },
+    "score_kind": {
+      "enum": [
+        "binary_rule",
+        "sigmoid_uncalibrated"
+      ],
+      "title": "Score Kind",
+      "type": "string"
+    }
+  },
+  "required": [
+    "text",
+    "components",
+    "structures",
+    "task",
+    "technologies",
+    "diagnostics",
+    "truncated",
+    "versions",
+    "backend",
+    "score_kind"
+  ],
+  "title": "Prediction",
+  "type": "object"
+}

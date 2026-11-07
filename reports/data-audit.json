@@ -1,0 +1,71 @@
+{
+  "n": 400,
+  "groups": 100,
+  "splits": {
+    "train": 280,
+    "validation": 60,
+    "test": 60
+  },
+  "support": {
+    "train": {
+      "action": 150,
+      "context": 176,
+      "measurement": 140,
+      "method": 153,
+      "result": 140
+    },
+    "validation": {
+      "action": 32,
+      "context": 35,
+      "measurement": 31,
+      "method": 32,
+      "result": 26
+    },
+    "test": {
+      "action": 31,
+      "context": 36,
+      "measurement": 31,
+      "method": 33,
+      "result": 31
+    }
+  },
+  "label_combinations": {
+    "11111": 100,
+    "10000": 10,
+    "01010": 10,
+    "01001": 19,
+    "10010": 10,
+    "01110": 10,
+    "00100": 25,
+    "10100": 9,
+    "00111": 10,
+    "00000": 25,
+    "11000": 9,
+    "00011": 10,
+    "01000": 34,
+    "11100": 9,
+    "00101": 8,
+    "10110": 10,
+    "00010": 9,
+    "11010": 10,
+    "01101": 10,
+    "10001": 10,
+    "00001": 8,
+    "01100": 9,
+    "10101": 9,
+    "11110": 9,
+    "11011": 9,
+    "11001": 9
+  },
+  "development_near_duplicates": [
+    {
+      "ids": [
+        "pi-0216",
+        "pi-0312"
+      ],
+      "similarity": 0.866
+    }
+  ],
+  "similarity_threshold": 0.85,
+  "limitations": "Composição sintética; grupos não garantem independência semântica."
+}

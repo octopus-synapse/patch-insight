@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "patchinsight"
+version = "0.1.0"
+description = "Componentes semânticos em descrições profissionais em pt-BR"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+license = "MIT"
+dependencies = ["pydantic==2.12.4"]
+
+[project.optional-dependencies]
+ml = [
+  "torch==2.6.0", "transformers==4.57.1", "scikit-learn==1.7.2",
+  "numpy==2.3.4", "safetensors==0.6.2", "huggingface-hub==0.36.0",
+]
+dev = ["pytest==8.4.2", "ruff==0.14.3"]
+
+[project.scripts]
+patchinsight = "patchinsight.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/patchinsight"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/tests", "/scripts", "/data", "/configs", "/docs", "/notebooks", "/licenses", "/README.md", "/LICENSE", "/pyproject.toml", "/uv.lock", "/Dockerfile", "/.python-version", "/.dockerignore"]
+exclude = ["*.pdf", "**/__pycache__", "*.pyc"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["real_model: requires a real trained checkpoint", "ml: requires ML dependencies"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100

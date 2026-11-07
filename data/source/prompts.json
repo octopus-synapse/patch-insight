@@ -1,0 +1,9 @@
+{
+  "generation": "Criar cenários sintéticos originais em pt-BR sobre software, dados e IA. Para cada cenário escrever cinco cláusulas independentes: contexto explícito; ação de análise/revisão/investigação realizada sem entrega afirmada; abordagem nominal explícita; efeito concreto impessoal sem atribuir ação pessoal; quantidade com referente introduzida por Escopo. Não usar dados pessoais, currículo ou fontes externas. Produzir 85 cenários de desenvolvimento e 15 cenários de teste em arquivos separados antes de qualquer experimento. Renderizar quatro variantes por cenário, com remoção controlada de componentes e uma intenção futura ou ação negada. Manter variantes no mesmo split.",
+  "review": "A mesma IA inspeciona as cláusulas originais e as regras de composição: ação exige contribuição realizada; resultado exige efeito ou entrega; medidas exigem referente. Verificar negação, futuro, versões, anos e identificadores. Auditar textos normalizados, duplicatas e cobertura. Registrar a dependência da composição e a ausência de revisão humana; não tratar as 400 variantes como 400 origens independentes.",
+  "generator": "Assistente Codex nesta sessão; identificador exato do modelo não disponibilizado de forma verificável",
+  "reviewer": "O mesmo assistente Codex; revisão não independente",
+  "guide_version": "0.1.0",
+  "source": "Instrução de implementação PatchInsight v0.1 e autoria sintética nesta sessão",
+  "excluded": ["resume_pt-br-2.pdf", "dados de pessoas reais", "textos de currículos públicos"]
+}

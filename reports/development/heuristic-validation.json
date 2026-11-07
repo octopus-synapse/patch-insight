@@ -1,0 +1,109 @@
+{
+  "split": "validation",
+  "metrics": {
+    "n": 60,
+    "macro_f1": 0.8529654186562852,
+    "micro_f1": 0.8623188405797102,
+    "exact_match": 0.5333333333333333,
+    "per_label": {
+      "action": {
+        "precision": 1.0,
+        "recall": 0.53125,
+        "f1": 0.6938775510204082,
+        "support": 32,
+        "tp": 17,
+        "fp": 0,
+        "fn": 15,
+        "tn": 28
+      },
+      "context": {
+        "precision": 0.967741935483871,
+        "recall": 0.8571428571428571,
+        "f1": 0.9090909090909091,
+        "support": 35,
+        "tp": 30,
+        "fp": 1,
+        "fn": 5,
+        "tn": 24
+      },
+      "method": {
+        "precision": 1.0,
+        "recall": 0.90625,
+        "f1": 0.9508196721311475,
+        "support": 32,
+        "tp": 29,
+        "fp": 0,
+        "fn": 3,
+        "tn": 28
+      },
+      "result": {
+        "precision": 1.0,
+        "recall": 0.6923076923076923,
+        "f1": 0.8181818181818182,
+        "support": 26,
+        "tp": 18,
+        "fp": 0,
+        "fn": 8,
+        "tn": 34
+      },
+      "measurement": {
+        "precision": 1.0,
+        "recall": 0.8064516129032258,
+        "f1": 0.8928571428571429,
+        "support": 31,
+        "tp": 25,
+        "fp": 0,
+        "fn": 6,
+        "tn": 29
+      }
+    },
+    "zero_division": 0
+  },
+  "provenance": {
+    "dataset": {
+      "dataset_version": "0.1.0",
+      "seed": 42,
+      "protocol": "compositional_groups_v1; fixed before experiments",
+      "counts": {
+        "train": 280,
+        "validation": 60,
+        "test": 60
+      },
+      "sha256": {
+        "dataset.jsonl": "054c0a19f2fb886c32018c1d1e8bf9b3c2ee6d32ad8f9acda58619ff5f94a9eb",
+        "splits/train.jsonl": "148466e584ac72e39e5307b6a7ab09dd7a7f2f852c51493eeb1f3bce2b13e4f0",
+        "splits/validation.jsonl": "fab146a33a5ed52e73407b687b2344b516fe1fb099b96b5b554aff00daa86306",
+        "splits/test.jsonl": "67c5244e4633f226f9d5453bac22a39e21d537d59e9b61d0ced823f97e96f176",
+        "source/development.tsv": "05a302da15ff7f13795b1b9df4bfb20928c05820b0f7c83fffeaac7687f791b8",
+        "source/test.tsv": "10d852d417b4b9b80538e807255716f566dffa0fed00dfec4f9b35e6ead72432",
+        "source/prompts.json": "56788c27df679e38ef5930a1345d17b029ca4c7ea3a5a66aa589ccd9727eabe1"
+      }
+    },
+    "config_sha256": "55675169dcd61068fc1014f89214e65a646c546e861a20f1cba407f0337d66aa"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Linux-7.1.8+deb13-amd64-x86_64-with-glibc2.41",
+    "packages": {
+      "torch": "unavailable",
+      "transformers": "unavailable",
+      "numpy": "2.2.4",
+      "scikit-learn": "unavailable",
+      "pydantic": "unavailable"
+    },
+    "source_sha256": {
+      "__init__.py": "07f1e581fc9fb8256b565d0f2f968af61622da5161e441c0487e0d122d71b80e",
+      "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "cli.py": "f9cc4684ec995264cf1223c79a4be5df33d6c5221d797e544f813244db90bd8b",
+      "data.py": "533b9618df7d41c1402a9fa6b02e6cd9f1ac0fdaad549d93cce98784070d52de",
+      "evaluate.py": "386dc2f86c890a3484b714e8311ce95cb771adae8a5cc91ecb266cba4e08712e",
+      "experiment.py": "683db32333171a30d6747980b705791ac17db70f6a90a8af82b6da5186b22c0e",
+      "metrics.py": "a1374b9fa54c1ae278a5b81c52317e06b6b1f97726a726afe5cfc7d924c232e3",
+      "model.py": "697d177b7634b3dbdb29731457774f80f36fd55ac23f2576d8af1a0565ce29b2",
+      "rules.py": "91110ebb75924bc50b010b94bf57f857896005c0493f669ee842d5a377525a35",
+      "schema.py": "4afcf1dc0cf75a8eb1392a7cbbf69c6727fb566c44da94ed4e68733024c144d4",
+      "text.py": "67132ac951f1b81972229e75ca311ef8dab8dc810992f8059717528ed79bc43e"
+    }
+  },
+  "rules_version": "0.1.0"
+}

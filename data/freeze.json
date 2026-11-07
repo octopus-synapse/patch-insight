@@ -1,0 +1,19 @@
+{
+  "dataset_version": "0.1.0",
+  "seed": 42,
+  "protocol": "compositional_groups_v1; fixed before experiments",
+  "counts": {
+    "train": 280,
+    "validation": 60,
+    "test": 60
+  },
+  "sha256": {
+    "dataset.jsonl": "054c0a19f2fb886c32018c1d1e8bf9b3c2ee6d32ad8f9acda58619ff5f94a9eb",
+    "splits/train.jsonl": "148466e584ac72e39e5307b6a7ab09dd7a7f2f852c51493eeb1f3bce2b13e4f0",
+    "splits/validation.jsonl": "fab146a33a5ed52e73407b687b2344b516fe1fb099b96b5b554aff00daa86306",
+    "splits/test.jsonl": "67c5244e4633f226f9d5453bac22a39e21d537d59e9b61d0ced823f97e96f176",
+    "source/development.tsv": "05a302da15ff7f13795b1b9df4bfb20928c05820b0f7c83fffeaac7687f791b8",
+    "source/test.tsv": "10d852d417b4b9b80538e807255716f566dffa0fed00dfec4f9b35e6ead72432",
+    "source/prompts.json": "56788c27df679e38ef5930a1345d17b029ca4c7ea3a5a66aa589ccd9727eabe1"
+  }
+}

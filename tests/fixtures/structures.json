@@ -1,0 +1,32 @@
+[
+  {
+    "name": "XYZ and multiple structures; co-occurrence only",
+    "text": "Implementei cache com Redis e reduzi a espera em 20%.",
+    "states": {"action":"present","context":"absent","method":"present","result":"present","measurement":"present"},
+    "structures": ["XYZ", "Action–Result", "Action–Technology"], "task": "unknown"
+  },
+  {
+    "name": "STAR requires explicit task",
+    "text": "No time de suporte havia atrasos. Meu objetivo era destravar as filas. Revisei os limites e o fluxo voltou ao normal.",
+    "states": {"action":"present","context":"present","method":"absent","result":"present","measurement":"absent"},
+    "structures": ["STAR", "Action–Result"], "task": "present"
+  },
+  {
+    "name": "Situation is not task",
+    "text": "No time de suporte havia atrasos. Corrigi a fila e o fluxo voltou ao normal.",
+    "states": {"action":"present","context":"present","method":"absent","result":"present","measurement":"absent"},
+    "structures": ["Action–Result"], "task": "unknown"
+  },
+  {
+    "name": "Unknown is not absent and cannot complete XYZ",
+    "text": "Investiguei as consultas com PostgreSQL.",
+    "states": {"action":"present","context":"unknown","method":"present","result":"unknown","measurement":"absent"},
+    "structures": ["Action–Technology"], "task": "unknown"
+  },
+  {
+    "name": "Version is not measurement; no action",
+    "text": "OAuth 2.0",
+    "states": {"action":"absent","context":"absent","method":"absent","result":"absent","measurement":"absent"},
+    "structures": [], "task": "unknown"
+  }
+]
