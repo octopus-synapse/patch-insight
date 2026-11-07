@@ -47,6 +47,16 @@ def test_tiny_local_multilabel_roundtrip(tmp_path):
     _, states, truncated, _ = predictor.predict("consulta " * 50)
     assert truncated
     assert "absent" not in states.values()
+    # Embedded calibration must affect scores exactly once after a round trip.
+    import json
+    original = predictor.score_batch(["Corrigi a consulta."])[0]
+    metadata = json.loads((tmp_path / "patchinsight.json").read_text())
+    metadata["calibration"] = {"temperature": 2.0}
+    save_json(tmp_path / "patchinsight.json", metadata)
+    write_manifest(tmp_path)
+    calibrated = BertPredictor(tmp_path).score_batch(["Corrigi a consulta."])[0]
+    expected = [float(torch.sigmoid(torch.logit(torch.tensor(p)) / 2)) for p in original]
+    assert calibrated == pytest.approx(expected, abs=1e-5)
     vocab.write_text("tampered")
     with pytest.raises(ValueError):
         BertPredictor(tmp_path)

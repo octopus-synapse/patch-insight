@@ -20,6 +20,8 @@ class Analyzer:
         if policy:
             if backend != "bert":
                 raise ValueError("política experimental exige backend bert")
+            if self.predictor.metadata.get("calibration"):
+                raise ValueError("bundle já contém calibração; política adicional recusada")
             from .assessment import temperature_scale
             candidate = json.loads(Path(policy).read_text())
             if candidate.get("method") != "bert_finetuned":
@@ -53,6 +55,8 @@ class Analyzer:
         results = []
         for text, (scores, states, truncated, tokens) in zip(texts, raw):
             kind = "binary_rule" if self.backend == "heuristic" else "sigmoid_uncalibrated"
+            if self.backend == "bert" and getattr(self.predictor, "metadata", {}).get("calibration"):
+                kind = "temperature_scaled_experimental"
             uncertain = []
             if self.policy:
                 from .assessment import temperature_scale

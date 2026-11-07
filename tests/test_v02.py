@@ -116,3 +116,20 @@ def test_policy_rejects_other_method_or_bundle(tmp_path, monkeypatch):
         path.write_text(json.dumps(dict(policy, **{key:value})))
         with pytest.raises(ValueError, match=message):
             Analyzer('bert', tmp_path, policy=path)
+
+
+def test_v03_data_is_frozen_and_disjoint():
+    import hashlib
+    from pathlib import Path
+    root=Path(__file__).resolve().parents[1]/'data/v03'
+    manifest=json.loads((root/'freeze.json').read_text())
+    for name,digest in manifest['sha256'].items():
+        assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest
+    seen_texts=set(); seen_groups=set()
+    for split,expected in [('train',96),('validation',48),('calibration',32),('test',64)]:
+        rows=[json.loads(s) for s in (root/f'{split}.jsonl').read_text().splitlines()]
+        assert len(rows)==expected
+        texts={r['text'] for r in rows}; groups={r['group_id'] for r in rows}
+        assert not seen_texts & texts and len(texts)==len(rows)
+        assert not seen_groups & groups
+        seen_texts.update(texts);seen_groups.update(groups)

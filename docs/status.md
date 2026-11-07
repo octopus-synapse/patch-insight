@@ -1,3 +1,22 @@
+# Refinamento local 0.3
+
+Checkpoint treinado e selecionado; meta de melhoria atingida no novo teste.
+Modelo local padrão atualizado, versões anteriores preservadas. Os novos pesos
+ainda não foram publicados. [Resultados e limitações](v03.md).
+
+# Publicação da 0.2 — 07/11/2026
+
+Release GitHub v0.2.0 publicada; workflow de release concluído com sucesso.
+Imagem GHCR pública com acesso anônimo verificado. Model e dataset no Hugging
+Face têm tags v0.2.0; os pesos continuam 0.1.0. Revisões e digest constam em
+`reports/releases/`. O registro local abaixo é histórico da preparação.
+
+A automação publica por tag e pode retomar uma publicação do Hub já verificada.
+Futuras tags inéditas exigem cadastrar o secret HF_TOKEN restrito aos dois repos.
+A autenticação OAuth local não foi copiada para secrets.
+
+---
+
 # Estado da v0.2 — 07/11/2026
 
 Implementada e verificada localmente, sem retreino ou republicação de checkpoint.

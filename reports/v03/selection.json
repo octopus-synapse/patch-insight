@@ -1,0 +1,354 @@
+{
+  "name": "continued",
+  "directory": "/home/efpatti/Documents/Projects/patch-insight/artifacts/refinement-v03/continued/model",
+  "temperature": 0.25,
+  "thresholds": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "validation": {
+    "n": 48,
+    "macro_f1": 1.0,
+    "micro_f1": 1.0,
+    "exact_match": 1.0,
+    "per_label": {
+      "action": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 28,
+        "tp": 28,
+        "fp": 0,
+        "fn": 0,
+        "tn": 20,
+        "average_precision": 0.9999999999999999,
+        "roc_auc": 1.0,
+        "mcc": 1.0,
+        "brier": 1.4748152549230127e-08,
+        "log_loss": 3.02536607904285e-05,
+        "reliability": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 20,
+            "mean_score": 6.590341699007566e-05,
+            "positive_rate": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 28,
+            "mean_score": 0.9999952278305828,
+            "positive_rate": 1.0
+          }
+        ]
+      },
+      "context": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 24,
+        "tp": 24,
+        "fp": 0,
+        "fn": 0,
+        "tn": 24,
+        "average_precision": 0.9999999999999999,
+        "roc_auc": 1.0,
+        "mcc": 1.0,
+        "brier": 3.85965331523009e-09,
+        "log_loss": 1.271629537167559e-05,
+        "reliability": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 24,
+            "mean_score": 5.085427684981371e-06,
+            "positive_rate": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 24,
+            "mean_score": 0.9999796654813841,
+            "positive_rate": 1.0
+          }
+        ]
+      },
+      "method": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 26,
+        "tp": 26,
+        "fp": 0,
+        "fn": 0,
+        "tn": 22,
+        "average_precision": 1.0,
+        "roc_auc": 1.0,
+        "mcc": 1.0,
+        "brier": 9.213804837712276e-10,
+        "log_loss": 1.1527696582124949e-05,
+        "reliability": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 22,
+            "mean_score": 1.2394333674987111e-05,
+            "positive_rate": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 26,
+            "mean_score": 0.9999892099271036,
+            "positive_rate": 1.0
+          }
+        ]
+      },
+      "result": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 27,
+        "tp": 27,
+        "fp": 0,
+        "fn": 0,
+        "tn": 21,
+        "average_precision": 1.0,
+        "roc_auc": 1.0,
+        "mcc": 1.0,
+        "brier": 6.775136176310544e-10,
+        "log_loss": 8.870990438259737e-06,
+        "reliability": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 21,
+            "mean_score": 1.2854017600233455e-05,
+            "positive_rate": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 27,
+            "mean_score": 0.9999942322938521,
+            "positive_rate": 1.0
+          }
+        ]
+      },
+      "measurement": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 30,
+        "tp": 30,
+        "fp": 0,
+        "fn": 0,
+        "tn": 18,
+        "average_precision": 0.9999999999999999,
+        "roc_auc": 1.0,
+        "mcc": 1.0,
+        "brier": 2.6951430313750646e-10,
+        "log_loss": 6.183717994990347e-06,
+        "reliability": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 18,
+            "mean_score": 5.5693973428889495e-06,
+            "positive_rate": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 0,
+            "mean_score": null,
+            "positive_rate": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 30,
+            "mean_score": 0.9999934561442531,
+            "positive_rate": 1.0
+          }
+        ]
+      }
+    },
+    "zero_division": 0,
+    "hamming_loss": 0.0,
+    "mean_binary_brier": 4.095242853800001e-09,
+    "mean_binary_log_loss": 1.3910472235495824e-05,
+    "macro_average_precision": 1.0,
+    "macro_roc_auc": 1.0,
+    "macro_mcc": 1.0,
+    "risk_coverage": [
+      {
+        "confidence_cutoff": 0.5,
+        "accepted_decisions": 240,
+        "coverage": 1.0,
+        "error_on_accepted": 0.0,
+        "complete_text_coverage": 1.0
+      },
+      {
+        "confidence_cutoff": 0.6,
+        "accepted_decisions": 240,
+        "coverage": 1.0,
+        "error_on_accepted": 0.0,
+        "complete_text_coverage": 1.0
+      },
+      {
+        "confidence_cutoff": 0.7,
+        "accepted_decisions": 240,
+        "coverage": 1.0,
+        "error_on_accepted": 0.0,
+        "complete_text_coverage": 1.0
+      },
+      {
+        "confidence_cutoff": 0.8,
+        "accepted_decisions": 240,
+        "coverage": 1.0,
+        "error_on_accepted": 0.0,
+        "complete_text_coverage": 1.0
+      },
+      {
+        "confidence_cutoff": 0.85,
+        "accepted_decisions": 240,
+        "coverage": 1.0,
+        "error_on_accepted": 0.0,
+        "complete_text_coverage": 1.0
+      },
+      {
+        "confidence_cutoff": 0.9,
+        "accepted_decisions": 240,
+        "coverage": 1.0,
+        "error_on_accepted": 0.0,
+        "complete_text_coverage": 1.0
+      },
+      {
+        "confidence_cutoff": 0.95,
+        "accepted_decisions": 240,
+        "coverage": 1.0,
+        "error_on_accepted": 0.0,
+        "complete_text_coverage": 1.0
+      },
+      {
+        "confidence_cutoff": 0.975,
+        "accepted_decisions": 240,
+        "coverage": 1.0,
+        "error_on_accepted": 0.0,
+        "complete_text_coverage": 1.0
+      },
+      {
+        "confidence_cutoff": 0.99,
+        "accepted_decisions": 240,
+        "coverage": 1.0,
+        "error_on_accepted": 0.0,
+        "complete_text_coverage": 1.0
+      }
+    ],
+    "probability_note": "Brier/log loss combinam discriminação e calibração.",
+    "log_loss_clip": 1e-07
+  }
+}

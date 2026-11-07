@@ -1,0 +1,17 @@
+{
+  "seed": 314,
+  "counts": {
+    "train": 96,
+    "validation": 48,
+    "calibration": 32,
+    "test": 64
+  },
+  "sha256": {
+    "source/scenarios.tsv": "268306d6f45dba84d7db7209395da76d61223eca32cfcce7641700d6e4e8b86e",
+    "README.md": "e0ebd9c0b95ff95f748c697ea1e6b8460787b34eb32562388420f297ee48803f",
+    "train.jsonl": "850a9c3144e0bc653a0563561cf49432635a4f6138156cf0cba978659b75c171",
+    "validation.jsonl": "609115bf635f478104306e929a68617b8c0dc71a0d27c11fdab582c2505a2d0a",
+    "calibration.jsonl": "38c90acfdac6554b0c2ecb8437f06f0e61d0f49646dbe49a2893da919b42c16a",
+    "test.jsonl": "f1679cf21021e9877343bbbc8b5bd3fdb4363493a878231a021f38ee8cea0573"
+  }
+}

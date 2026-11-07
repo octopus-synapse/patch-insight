@@ -76,7 +76,8 @@ def fine_tune(config, train, validation, output, device, provenance):
     seed_all(config["seed"])
     tokenizer = AutoTokenizer.from_pretrained(config["base_model"], revision=config["base_revision"])
     model = AutoModelForSequenceClassification.from_pretrained(
-        config["base_model"], revision=config["base_revision"], num_labels=len(LABELS),
+        config.get("initial_checkpoint", config["base_model"]),
+        revision=None if config.get("initial_checkpoint") else config["base_revision"], num_labels=len(LABELS),
         problem_type="multi_label_classification", id2label=dict(enumerate(LABELS)),
         label2id={k: i for i, k in enumerate(LABELS)}).to(device)
     train_loader = torch.utils.data.DataLoader(
@@ -88,6 +89,7 @@ def fine_tune(config, train, validation, output, device, provenance):
         batch_size=config["batch_size"])
     optimizer = torch.optim.AdamW(model.parameters(), lr=config["learning_rate"], weight_decay=0.01)
     best, history, best_epoch = -1.0, [], 0
+    best_log_loss = float("inf")
     checkpoint = output / "model"
     for epoch in range(config["epochs"]):
         model.train()
@@ -112,10 +114,17 @@ def fine_tune(config, train, validation, output, device, provenance):
                 scores.extend(model(**{k: v.to(device) for k, v in batch.items()
                                        if k != "labels"}).logits.sigmoid().cpu().tolist())
         report = metrics(targets(validation), binary(scores, config["thresholds"]))
+        import numpy as np
+        from .assessment import binary_log_loss
+        validation_loss = binary_log_loss(np.asarray(targets(validation)), np.asarray(scores))
         history.append({"epoch": epoch + 1, "train_loss": total_loss / len(train_loader),
-                        "validation": report})
+                        "validation": report, "validation_log_loss": validation_loss})
         print(json.dumps(history[-1]), flush=True)
-        if report["macro_f1"] > best:
+        better = report["macro_f1"] > best
+        if config.get("selection") == "validation_macro_f1_then_log_loss":
+            better |= report["macro_f1"] == best and validation_loss < best_log_loss
+        if better:
+            best_log_loss = validation_loss
             best, best_epoch = report["macro_f1"], epoch + 1
             model.save_pretrained(checkpoint, safe_serialization=True)
             tokenizer.save_pretrained(checkpoint)
@@ -125,7 +134,7 @@ def fine_tune(config, train, validation, output, device, provenance):
                 "experiment": config, "provenance": provenance, "environment": environment()}
     save_json(checkpoint / "patchinsight.json", metadata)
     save_json(output / "training.json", {"history": history, "selected_epoch": best_epoch,
-                                        "selection": "validation_macro_f1; earliest tie"})
+                                        "selection": ("validation_macro_f1_then_log_loss" if config.get("selection") == "validation_macro_f1_then_log_loss" else "validation_macro_f1; earliest tie")})
     root = Path(__file__).resolve().parents[2]
     for filename in ("LICENSE", "licenses/BERTIMBAU-MIT.txt", "docs/MODEL_CARD.md"):
         source = root / filename

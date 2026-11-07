@@ -62,17 +62,20 @@ def selective_metrics(targets, scores, cutoff):
             "complete_text_coverage": float(accepted.all(axis=1).mean())}
 
 
-def extended_metrics(targets, scores):
+def extended_metrics(targets, scores, thresholds=None):
     y, p = arrays(targets, scores)
-    result = metrics(y.tolist(), (p >= .5).astype(int).tolist())
-    result["hamming_loss"] = float(np.mean((p >= .5) != y))
+    thresholds = np.asarray([.5] * len(LABELS) if thresholds is None else thresholds, dtype=float)
+    if thresholds.shape != (len(LABELS),) or not np.isfinite(thresholds).all() or ((thresholds <= 0) | (thresholds >= 1)).any():
+        raise ValueError("cinco limiares finitos entre 0 e 1 são obrigatórios")
+    result = metrics(y.tolist(), (p >= thresholds).astype(int).tolist())
+    result["hamming_loss"] = float(np.mean((p >= thresholds) != y))
     result["mean_binary_brier"] = float(np.mean((p - y) ** 2))
     result["mean_binary_log_loss"] = binary_log_loss(y, p)
     aps, aucs, mccs = [], [], []
     for i, label in enumerate(LABELS):
         ap = float(average_precision_score(y[:, i], p[:, i])) if y[:, i].sum() else None
         auc = float(roc_auc_score(y[:, i], p[:, i])) if len(set(y[:, i])) == 2 else None
-        predicted = p[:, i] >= .5
+        predicted = p[:, i] >= thresholds[i]
         mcc = (float(matthews_corrcoef(y[:, i], predicted))
                if len(set(y[:, i])) == 2 and len(set(predicted)) == 2 else 0.0)
         bins = []
@@ -95,6 +98,9 @@ def extended_metrics(targets, scores):
     result["macro_mcc"] = float(np.mean(mccs))
     result["risk_coverage"] = [selective_metrics(y, p, c) for c in
                                [.5, .6, .7, .8, .85, .9, .95, .975, .99]]
+    if not np.all(thresholds == .5):
+        result.pop("risk_coverage")
+        result["thresholds"] = thresholds.tolist()
     result["probability_note"] = "Brier/log loss combinam discriminação e calibração."
     result["log_loss_clip"] = 1e-7
     return result

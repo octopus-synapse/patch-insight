@@ -1,0 +1,60 @@
+No faturamento havia cobranças repetidas|Investiguei as duplicatas|comparação de identificadores|As cobranças repetidas desapareceram|12 documentos
+A equipe de entregas tinha rotas inconsistentes|Revisei os itinerários|simulação de trajetos|As rotas ficaram consistentes|oito rotas
+O catálogo mostrava preços antigos|Examinei a atualização|rastreamento de eventos|Os preços voltaram a ser atualizados|300 itens
+No suporte faltavam instruções|Comparei os procedimentos|entrevistas com atendentes|O guia ficou disponível|seis equipes
+A plataforma de cursos perdia respostas|Inspecionei o salvamento|testes exploratórios|As respostas passaram a ser preservadas|40 testes
+Na loja digital os pedidos travavam|Analisei os bloqueios|consultas SQL|Os pedidos voltaram a avançar|15 pedidos
+O armazém tinha contagens conflitantes|Auditei o inventário|conferência manual|As contagens ficaram iguais|90 registros
+Na equipe de segurança faltava visibilidade|Examinei os acessos|análise de logs com Python|O relatório ficou disponível|sete serviços
+O aplicativo exibia telas vazias|Investiguei a renderização|captura de traces|As telas voltaram a aparecer|20 sessões
+Durante a migração havia arquivos corrompidos|Revisei a transferência|comparação de checksums|Os arquivos foram recuperados|200 arquivos
+Na operação de crédito faltavam alertas|Analisei as notificações|reprodução de eventos|Os alertas ficaram disponíveis|dez regras
+O sistema de reservas duplicava lugares|Inspecionei os bloqueios|testes de concorrência|As reservas duplicadas deixaram de ocorrer|60 requisições
+No financeiro havia diferenças de saldo|Comparei os lançamentos|reconciliação com SQL|Os saldos ficaram conciliados|30 contas
+No portal de notícias as imagens sumiam|Examinei o carregamento|inspeção do cache|As imagens voltaram a aparecer|nove páginas
+A equipe de análise recebia dados atrasados|Revisei as cargas|orquestração com Airflow|Os dados passaram a chegar no horário|quatro pipelines
+Durante o fechamento faltavam comprovantes|Investiguei a emissão|consulta aos eventos|Os comprovantes ficaram acessíveis|80 comprovantes
+A biblioteca retornava erros de formato|Inspecionei a serialização|testes de contrato|O formato passou a ser aceito|18 mensagens
+No agendamento havia horários sobrepostos|Comparei os intervalos|verificação de fronteiras|Os conflitos deixaram de ocorrer|25 horários
+O serviço de mapas perdia coordenadas|Analisei a conversão|comparação de projeções|As coordenadas foram preservadas|500 pontos
+Na área de compras havia aprovações lentas|Examinei as etapas|entrevistas com compradores|O fluxo de aprovação ficou disponível|três setores
+O terminal registrava leituras incompletas|Investiguei a captura|simulação de entradas|As leituras voltaram a ser completas|70 leituras
+No processamento de áudio faltavam trechos|Revisei a segmentação|comparação de espectrogramas|Os trechos foram recuperados|16 gravações
+O treinamento descartava amostras válidas|Inspecionei o filtro|análise com pandas|As amostras foram preservadas|900 amostras
+A equipe de operação tinha alertas duplicados|Auditei as notificações|agrupamento por assinatura|Os alertas duplicados desapareceram|11 alertas
+O painel de energia mostrava valores divergentes|Comparei as leituras|checagem cruzada|O painel passou a mostrar valores consistentes|45 sensores
+No transporte as posições chegavam fora de ordem|Investiguei a sequência|correlação de timestamps|As posições passaram a respeitar a ordem|14 veículos
+O portal acadêmico perdia inscrições|Examinei a persistência|reprodução de transações|As inscrições foram recuperadas|32 inscrições
+Na equipe de observabilidade faltavam métricas|Revisei os coletores|inspeção de endpoints|As métricas ficaram disponíveis|cinco coletores
+A exportação gerava colunas trocadas|Inspecionei o mapeamento|testes de equivalência|As colunas voltaram à ordem prevista|24 tabelas
+No atendimento os anexos não abriam|Analisei a codificação|comparação de cabeçalhos|Os anexos voltaram a abrir|65 anexos
+O gerenciador perdia tarefas agendadas|Investiguei a fila|inspeção de estados|As tarefas foram recuperadas|19 tarefas
+Na integração os eventos se repetiam|Auditei o consumo|verificação de chaves|Os eventos repetidos foram eliminados|120 eventos
+O aplicativo de campo não sincronizava fotos|Examinei a sincronização|captura de tráfego|As fotos ficaram acessíveis|80 imagens
+A equipe de pesquisa tinha resultados inconsistentes|Comparei as execuções|controle de seeds|As execuções passaram a ser reproduzíveis|oito experimentos
+O sistema de contratos perdia assinaturas|Inspecionei a validação|testes de integridade|As assinaturas passaram a ser preservadas|35 contratos
+Durante a atualização os atalhos quebraram|Revisei os caminhos|varredura de links|Os atalhos voltaram a funcionar|42 links
+No reembolso faltavam recibos|Investiguei a recuperação|busca por identificadores|Os recibos foram recuperados|27 recibos
+A aplicação de mensagens atrasava notificações|Analisei o despacho|correlação de traces|As notificações voltaram a chegar|seis filas
+A equipe editorial tinha versões conflitantes|Comparei as revisões|análise de diferenças|As versões foram conciliadas|22 revisões
+O serviço de impressão cortava margens|Examinei o layout|comparação de dimensões|As margens ficaram corretas|13 modelos
+No acesso remoto havia sessões órfãs|Inspecionei o encerramento|rastreamento de conexões|As sessões órfãs desapareceram|17 conexões
+O laboratório recebia arquivos incompatíveis|Revisei a importação|validação de schemas|Os arquivos passaram a ser aceitos|55 arquivos
+Na emissão de notas havia códigos inválidos|Auditei o mapeamento|consulta ao catálogo|Os códigos passaram a ser aceitos|28 códigos
+O controle de estoque ignorava devoluções|Investiguei os movimentos|reprodução de operações|As devoluções passaram a ser registradas|48 operações
+A busca de documentos retornava páginas vazias|Examinei a indexação|análise de termos|Os documentos ficaram pesquisáveis|75 documentos
+Na operação de assinaturas havia renovações perdidas|Revisei o calendário|simulação de datas|As renovações voltaram a ser registradas|31 assinaturas
+O sistema de benefícios somava valores errados|Comparei os cálculos|testes de propriedades|Os totais ficaram corretos|26 cálculos
+Na equipe de monitoramento faltavam sinais|Inspecionei a instrumentação|análise de spans|Os sinais ficaram disponíveis|nove agentes
+O editor visual perdia alterações|Investiguei a gravação|testes de interrupção|As alterações foram preservadas|38 edições
+No controle de qualidade as verificações travavam|Examinei a execução|análise do escalonamento|As verificações voltaram a concluir|44 verificações
+A plataforma de pesquisa repetia participantes|Auditei os cadastros|comparação de chaves|Os cadastros repetidos foram removidos|160 participantes
+Durante a transferência os pacotes sumiam|Inspecionei a transmissão|captura de pacotes|Os pacotes voltaram a ser recebidos|21 pacotes
+O serviço de autenticação recusava credenciais válidas|Investiguei a verificação|reprodução de tentativas|As credenciais voltaram a ser aceitas|34 tentativas
+Na equipe de infraestrutura faltavam inventários|Revisei a descoberta|varredura de recursos|O inventário ficou disponível|62 recursos
+O cálculo de frete ignorava descontos|Comparei as regras|testes de combinações|Os descontos passaram a ser aplicados|29 combinações
+O portal de clientes perdia preferências|Examinei o armazenamento|inspeção de transações|As preferências foram recuperadas|43 perfis
+No armazenamento as cópias divergiam|Auditei a replicação|checagem de hashes|As cópias ficaram consistentes|57 blocos
+A aplicação de relatórios quebrava acentos|Inspecionei a conversão|testes de codificação|Os acentos passaram a ser preservados|46 relatórios
+No processamento de imagens havia recortes indevidos|Analisei as transformações|comparação de coordenadas|As imagens ficaram completas|63 imagens
+A equipe de auditoria não encontrava evidências|Investiguei a consulta|busca por atributos|As evidências ficaram acessíveis|52 evidências

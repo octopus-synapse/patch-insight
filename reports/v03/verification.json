@@ -1,0 +1,22 @@
+{
+  "selected_model": "continued",
+  "checkpoint_version": "0.3.0",
+  "target_met": true,
+  "weights_sha256": "bbb595c71249dd4355ac3b66fc1865977d1b0f31edc767483fd78718bc5a29aa",
+  "previous_weights_sha256": "3a11fc1a543890444f28287a9ac55768f3560100175d149356209d0ccbc26f26",
+  "data_freeze_sha256": "8b779b171d7421bc48c8932321fe1365bdbe49aaca362dd82bc26d2c5339bce9",
+  "checkpoint_path": "artifacts/refinement-v03/selected-model",
+  "local_default": "artifacts/model",
+  "historical_checkpoints": [
+    "artifacts/model-v01",
+    "artifacts/run-42/model"
+  ],
+  "public_weights_release": false,
+  "review": "same authoring AI; no human review",
+  "attempts": {
+    "completed_candidates": 3,
+    "interrupted_executions_before_test": 2
+  },
+  "selection_before_test": true,
+  "embedded_calibration_roundtrip_verified": true
+}

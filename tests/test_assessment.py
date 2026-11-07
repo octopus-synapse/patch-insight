@@ -51,3 +51,15 @@ def test_policy_reports_unattainable_target():
     assert fit_policy(y, p) == policy
     result = paired_group_bootstrap(y, p, p, ['a', 'b'], repeats=50)
     assert result['percentile_95'] == [0, 0]
+
+
+def test_component_thresholds_preserve_probability_metrics():
+    y = [[1,0,1,0,1],[0,1,0,1,0]]
+    p = [[.3,.1,.3,.1,.3],[.1,.3,.1,.3,.1]]
+    raw = extended_metrics(y,p)
+    tuned = extended_metrics(y,p,thresholds=[.2]*5)
+    assert tuned['macro_f1'] == 1
+    assert tuned['hamming_loss'] == 0
+    assert tuned['macro_mcc'] == 1
+    assert tuned['mean_binary_brier'] == raw['mean_binary_brier']
+    assert 'risk_coverage' not in tuned

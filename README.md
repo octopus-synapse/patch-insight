@@ -1,6 +1,13 @@
 # PatchInsight
 
-**v0.2 implementada localmente: avaliação ampliada, batch, Action–Method e demo.**
+**Checkpoint 0.3 refinado e validado localmente.** No teste novo, macro-F1
+0,7296 → 1,0000; no diagnóstico conhecido da 0.2, 0,5584 → 0,9752.
+O novo teste tem padrões controlados e o diagnóstico já era conhecido; ambos
+continuam sintéticos, revisados pela mesma IA. Não há validação humana.
+O modelo local padrão foi atualizado; os pesos públicos da release 0.2
+continuam 0.1.0. [Resultados, limites e reprodução](docs/v03.md).
+
+**v0.2 publicada: avaliação ampliada, batch, Action–Method e demo.**
 Os checkpoints da v0.1 foram avaliados em 36 textos novos, escritos, anotados e
 revisados pelo próprio assistente IA, sem revisão humana. Macro-F1: heurísticas
 **0,6910**, encoder congelado + regressão **0,6196**, BERT ajustado **0,5584**.
@@ -10,8 +17,10 @@ menor Brier/log loss entre as variantes avaliadas. Não há validação em curr�
 
 [Resultados e comandos da v0.2](docs/v02.md) · [Novo teste](reports/v02/test/README.md)
 · [Análise de erros](reports/v02/error-analysis.md) · [Revisão por IA](docs/v02-data-review.md).
-Software/schema/regras: 0.2.0; checkpoint preservado: 0.1.0. A v0.2 não foi
-publicada no GitHub ou no Hub nesta rodada.
+Software/schema/regras: 0.2.0; checkpoint preservado: 0.1.0. A [release v0.2.0](https://github.com/octopus-synapse/patch-insight/releases/tag/v0.2.0)
+está publicada no GitHub e ambos os repositórios do Hub têm a tag v0.2.0.
+Imagem pública: `ghcr.io/octopus-synapse/patch-insight:v0.2.0`.
+[Automação e recuperação de releases](docs/releases.md).
 
 ```bash
 # Demo local com o checkpoint real; abrir http://127.0.0.1:8765

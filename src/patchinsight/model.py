@@ -1,5 +1,6 @@
 """Local-only inference from an integrity-checked, fine-tuned bundle."""
 import json
+import math
 from pathlib import Path
 
 from . import LABELS
@@ -31,6 +32,9 @@ def verify_bundle(directory):
         raise ValueError("thresholds inválidos")
     if not 4 <= metadata["max_length"] <= 512:
         raise ValueError("max_length inválido")
+    temperature = metadata.get("calibration", {}).get("temperature", 1.0)
+    if not isinstance(temperature, (int, float)) or not math.isfinite(temperature) or not .1 <= temperature <= 10:
+        raise ValueError("temperatura inválida no bundle")
     return metadata
 
 
@@ -58,7 +62,8 @@ class BertPredictor:
             logits = self.model(**inputs.to(self.device)).logits
         if not torch.isfinite(logits).all():
             raise ValueError("modelo produziu logits não finitos")
-        return logits.sigmoid().cpu().tolist()
+        temperature = self.metadata.get("calibration", {}).get("temperature", 1.0)
+        return (logits / temperature).sigmoid().cpu().tolist()
 
     def predict(self, text):
         return self.predict_many([text])[0]

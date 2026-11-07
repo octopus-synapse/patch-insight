@@ -51,6 +51,7 @@ def make_server(analyzer, port=8765):
                 self.reply(200, (Path(__file__).parent / 'web/comparison.json').read_bytes())
             elif self.path == '/healthz':
                 self.reply(200, {'ready': True, 'backend': analyzer.backend,
+                    'model_version': getattr(getattr(analyzer, 'predictor', None), 'version', 'heuristic-0.1.0'),
                     'policy': analyzer.policy['policy_id'] if analyzer.policy else None})
             else:
                 self.reply(404, {'error': 'rota inexistente'})
