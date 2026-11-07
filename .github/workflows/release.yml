@@ -36,6 +36,8 @@ jobs:
           if [ -z "$HF_TOKEN" ]; then
             echo "No HF_TOKEN: only an already published, matching Hub release can be resumed."
           fi
+      - name: Free hosted-runner disk for ML image
+        run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
       - run: uv lock --check
       - run: uv sync --frozen --extra ml --extra dev
       - name: Download pinned checkpoint and stage reviewed publication
@@ -59,11 +61,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           printf '%s' "$GH_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          CODE_SHA="$(git rev-parse HEAD)"
           IMAGE=ghcr.io/octopus-synapse/patch-insight
           docker tag "patchinsight:${RELEASE_TAG#v}" "$IMAGE:$RELEASE_TAG"
-          docker tag "patchinsight:${RELEASE_TAG#v}" "$IMAGE:sha-$GITHUB_SHA"
+          docker tag "patchinsight:${RELEASE_TAG#v}" "$IMAGE:sha-$CODE_SHA"
           docker push "$IMAGE:$RELEASE_TAG"
-          docker push "$IMAGE:sha-$GITHUB_SHA"
+          docker push "$IMAGE:sha-$CODE_SHA"
           docker inspect --format '{{json .RepoDigests}}' "$IMAGE:$RELEASE_TAG" > artifacts/image-digests.json
       - name: Publish release manifest and packages
         env:
