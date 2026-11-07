@@ -1,0 +1,252 @@
+{
+  "reference": "synthetic_ai_reviewed",
+  "split": "test",
+  "dataset": {
+    "dataset_version": "0.1.0",
+    "seed": 42,
+    "protocol": "compositional_groups_v1; fixed before experiments",
+    "counts": {
+      "train": 280,
+      "validation": 60,
+      "test": 60
+    },
+    "sha256": {
+      "dataset.jsonl": "054c0a19f2fb886c32018c1d1e8bf9b3c2ee6d32ad8f9acda58619ff5f94a9eb",
+      "splits/train.jsonl": "148466e584ac72e39e5307b6a7ab09dd7a7f2f852c51493eeb1f3bce2b13e4f0",
+      "splits/validation.jsonl": "fab146a33a5ed52e73407b687b2344b516fe1fb099b96b5b554aff00daa86306",
+      "splits/test.jsonl": "67c5244e4633f226f9d5453bac22a39e21d537d59e9b61d0ced823f97e96f176",
+      "source/development.tsv": "05a302da15ff7f13795b1b9df4bfb20928c05820b0f7c83fffeaac7687f791b8",
+      "source/test.tsv": "10d852d417b4b9b80538e807255716f566dffa0fed00dfec4f9b35e6ead72432",
+      "source/prompts.json": "56788c27df679e38ef5930a1345d17b029ca4c7ea3a5a66aa589ccd9727eabe1"
+    }
+  },
+  "environment": {
+    "python": "3.11.14",
+    "platform": "Linux-7.1.8+deb13-amd64-x86_64-with-glibc2.41",
+    "packages": {
+      "torch": "2.6.0",
+      "transformers": "4.57.1",
+      "numpy": "2.3.4",
+      "scikit-learn": "1.7.2",
+      "pydantic": "2.12.4"
+    },
+    "source_sha256": {
+      "__init__.py": "07f1e581fc9fb8256b565d0f2f968af61622da5161e441c0487e0d122d71b80e",
+      "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "cli.py": "f9cc4684ec995264cf1223c79a4be5df33d6c5221d797e544f813244db90bd8b",
+      "data.py": "533b9618df7d41c1402a9fa6b02e6cd9f1ac0fdaad549d93cce98784070d52de",
+      "evaluate.py": "386dc2f86c890a3484b714e8311ce95cb771adae8a5cc91ecb266cba4e08712e",
+      "experiment.py": "683db32333171a30d6747980b705791ac17db70f6a90a8af82b6da5186b22c0e",
+      "metrics.py": "a1374b9fa54c1ae278a5b81c52317e06b6b1f97726a726afe5cfc7d924c232e3",
+      "model.py": "697d177b7634b3dbdb29731457774f80f36fd55ac23f2576d8af1a0565ce29b2",
+      "rules.py": "0c2a0dcbbac8220abfd38bc93830a699b52366e781f5b4b977329e5473d046bf",
+      "schema.py": "4afcf1dc0cf75a8eb1392a7cbbf69c6727fb566c44da94ed4e68733024c144d4",
+      "text.py": "67132ac951f1b81972229e75ca311ef8dab8dc810992f8059717528ed79bc43e"
+    }
+  },
+  "rules_version": "0.1.0",
+  "model_manifest_sha256": "8aec42f49e157ee64bd77fb82656b848d856cd29c0ec0b30fba41d9884f92720",
+  "frozen_sha256": "07bf28b9c3349024949f89af59c3a8e3e0a126527d3de57b9c2b69064228e8a2",
+  "thresholds": {
+    "heuristic": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "frozen_logistic": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "bert_finetuned": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  },
+  "methods": {
+    "heuristic": {
+      "n": 60,
+      "macro_f1": 0.6791489361702128,
+      "micro_f1": 0.7633587786259542,
+      "exact_match": 0.3333333333333333,
+      "per_label": {
+        "action": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 31,
+          "tp": 0,
+          "fp": 0,
+          "fn": 31,
+          "tn": 29
+        },
+        "context": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "support": 36,
+          "tp": 24,
+          "fp": 0,
+          "fn": 12,
+          "tn": 24
+        },
+        "method": {
+          "precision": 1.0,
+          "recall": 0.42424242424242425,
+          "f1": 0.5957446808510638,
+          "support": 33,
+          "tp": 14,
+          "fp": 0,
+          "fn": 19,
+          "tn": 27
+        },
+        "result": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        },
+        "measurement": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        }
+      },
+      "zero_division": 0
+    },
+    "frozen_logistic": {
+      "n": 60,
+      "macro_f1": 0.9888253968253968,
+      "micro_f1": 0.9878048780487805,
+      "exact_match": 0.9333333333333333,
+      "per_label": {
+        "action": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        },
+        "context": {
+          "precision": 0.9230769230769231,
+          "recall": 1.0,
+          "f1": 0.96,
+          "support": 36,
+          "tp": 36,
+          "fp": 3,
+          "fn": 0,
+          "tn": 21
+        },
+        "method": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 33,
+          "tp": 33,
+          "fp": 0,
+          "fn": 0,
+          "tn": 27
+        },
+        "result": {
+          "precision": 0.96875,
+          "recall": 1.0,
+          "f1": 0.9841269841269841,
+          "support": 31,
+          "tp": 31,
+          "fp": 1,
+          "fn": 0,
+          "tn": 28
+        },
+        "measurement": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        }
+      },
+      "zero_division": 0
+    },
+    "bert_finetuned": {
+      "n": 60,
+      "macro_f1": 0.9911005961711339,
+      "micro_f1": 0.9908256880733946,
+      "exact_match": 0.95,
+      "per_label": {
+        "action": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        },
+        "context": {
+          "precision": 0.972972972972973,
+          "recall": 1.0,
+          "f1": 0.9863013698630136,
+          "support": 36,
+          "tp": 36,
+          "fp": 1,
+          "fn": 0,
+          "tn": 23
+        },
+        "method": {
+          "precision": 0.9705882352941176,
+          "recall": 1.0,
+          "f1": 0.9850746268656716,
+          "support": 33,
+          "tp": 33,
+          "fp": 1,
+          "fn": 0,
+          "tn": 26
+        },
+        "result": {
+          "precision": 0.96875,
+          "recall": 1.0,
+          "f1": 0.9841269841269841,
+          "support": 31,
+          "tp": 31,
+          "fp": 1,
+          "fn": 0,
+          "tn": 28
+        },
+        "measurement": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        }
+      },
+      "zero_division": 0
+    }
+  }
+}

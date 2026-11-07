@@ -1,0 +1,24 @@
+{
+  "image_id": "sha256:c883439de96a210ea331937e9ddacca80006f6af4e173dbf781260f56e585952",
+  "image_size_bytes": 3696835359,
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--tmpfs",
+    "/tmp",
+    "patchinsight:0.1.0",
+    "--text",
+    "Revisei as consultas com SQL e reduzi a espera em 20%."
+  ],
+  "exit_code": 0,
+  "json_schema_validation": "passed",
+  "model_weights_sha256": "3a11fc1a543890444f28287a9ac55768f3560100175d149356209d0ccbc26f26",
+  "training_manifest_sha256": "8aec42f49e157ee64bd77fb82656b848d856cd29c0ec0b30fba41d9884f92720",
+  "network": "none",
+  "runtime_user": "65532:65532",
+  "image_registry_published": false
+}

@@ -1,0 +1,12 @@
+{
+  "method": "paired percentile bootstrap by origin group",
+  "seed": 42,
+  "replicates": 2000,
+  "n_groups": 15,
+  "delta_macro_f1_bert_minus_frozen": 0.0022751993457370556,
+  "percentile_95_interval": [
+    -0.010817835330853676,
+    0.014462560386473311
+  ],
+  "caveat": "Descriptive synthetic sample only; groups may share templates. No population inference about real resumes."
+}

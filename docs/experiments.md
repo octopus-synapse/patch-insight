@@ -61,8 +61,15 @@ baseline na validação: macro-F1 0,852965, micro-F1 0,862319, exact match
 0,533333, n=60. Essa execução não exigiu bibliotecas de ML. Nenhuma alteração
 de regra foi feita com base em erros do teste; o teste não foi pontuado.
 
-Baseline congelada, fine-tuning, checkpoint real, teste final e inferência
-offline em Docker estão pendentes pelas restrições de ambiente registradas
-em `docs/status.md`. Testes com BERT minúsculo aleatório validam somente o
-encanamento técnico; não são resultados do modelo base nem evidência de treino
-da tarefa. O teste `real_model` só conta quando executado sobre bundle real.
+A baseline congelada e o fine-tuning foram executados na GPU local NVIDIA RTX
+A1000 6 GB, com Python 3.11.14. Seleção: época 5, macro-F1 de validação 0,996923.
+O teste final está em `reports/final/benchmark.json`; modelos ajustado e congelado
+obtiveram macro-F1 0,991101 e 0,988825. O bootstrap pareado por origem inclui zero
+no intervalo de ganho; ver `reports/final/uncertainty.json`.
+
+O retreino de reprodução usa a mesma configuração, sem decisões adicionais
+baseadas no teste; é uma verificação do pipeline, não um novo candidato. Logs
+de treinamento, ambiente e aviso de atenção não determinística estão em
+`reports/training`. A identidade bit a bit dos pesos entre retreinos não é
+prometida. Testes com BERT minúsculo validam somente o fluxo técnico e não
+entram no benchmark. O teste de checkpoint real passou após o ajuste completo.

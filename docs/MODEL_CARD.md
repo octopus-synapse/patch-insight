@@ -11,10 +11,10 @@ tags:
 
 # PatchInsight 0.1 — Model Card em preparação
 
-**Status: pipeline implementado; checkpoint real ainda não treinado/publicado
-neste ambiente.** Este arquivo não prova a existência de um modelo ajustado.
-O treinamento copiará este documento para o bundle; atualizar status, links e
-resultados reais antes de publicar.
+**Status: template de Model Card usado antes de preparar uma publicação.**
+A card com os resultados reais está no [modelo publicado](https://huggingface.co/enzoferracini/patchinsight-bertimbau-ptbr).
+O treinamento copia este template para cada novo bundle; `prepare_hub.py`
+preenche os resultados do respectivo run antes da publicação.
 
 O modelo proposto é BERTimbau Base com ajuste completo dos pesos e cabeça de
 cinco saídas sigmoid na ordem `action`, `context`, `method`, `result`,

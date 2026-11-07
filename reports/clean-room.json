@@ -1,0 +1,196 @@
+{
+  "generated_at": "2026-11-07T12:36:38.065994+00:00",
+  "source_commit": "d782e9d853e1ef9bdc52a707087251f295a11275",
+  "environment": "new SSH clone and fresh Python 3.11.14 virtualenv; uv download/package caches reused",
+  "steps": [
+    "uv sync --frozen --extra ml --extra dev",
+    "scripts/reproduce.sh (seed 42, unchanged config, cuda)",
+    "patchinsight.evaluate --final"
+  ],
+  "all_commands_exit_code": 0,
+  "real_checkpoint_test": "passed",
+  "methods": {
+    "heuristic": {
+      "n": 60,
+      "macro_f1": 0.6791489361702128,
+      "micro_f1": 0.7633587786259542,
+      "exact_match": 0.3333333333333333,
+      "per_label": {
+        "action": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 31,
+          "tp": 0,
+          "fp": 0,
+          "fn": 31,
+          "tn": 29
+        },
+        "context": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "support": 36,
+          "tp": 24,
+          "fp": 0,
+          "fn": 12,
+          "tn": 24
+        },
+        "method": {
+          "precision": 1.0,
+          "recall": 0.42424242424242425,
+          "f1": 0.5957446808510638,
+          "support": 33,
+          "tp": 14,
+          "fp": 0,
+          "fn": 19,
+          "tn": 27
+        },
+        "result": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        },
+        "measurement": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        }
+      },
+      "zero_division": 0
+    },
+    "frozen_logistic": {
+      "n": 60,
+      "macro_f1": 0.9888253968253968,
+      "micro_f1": 0.9878048780487805,
+      "exact_match": 0.9333333333333333,
+      "per_label": {
+        "action": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        },
+        "context": {
+          "precision": 0.9230769230769231,
+          "recall": 1.0,
+          "f1": 0.96,
+          "support": 36,
+          "tp": 36,
+          "fp": 3,
+          "fn": 0,
+          "tn": 21
+        },
+        "method": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 33,
+          "tp": 33,
+          "fp": 0,
+          "fn": 0,
+          "tn": 27
+        },
+        "result": {
+          "precision": 0.96875,
+          "recall": 1.0,
+          "f1": 0.9841269841269841,
+          "support": 31,
+          "tp": 31,
+          "fp": 1,
+          "fn": 0,
+          "tn": 28
+        },
+        "measurement": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        }
+      },
+      "zero_division": 0
+    },
+    "bert_finetuned": {
+      "n": 60,
+      "macro_f1": 0.9911005961711339,
+      "micro_f1": 0.9908256880733946,
+      "exact_match": 0.95,
+      "per_label": {
+        "action": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        },
+        "context": {
+          "precision": 0.972972972972973,
+          "recall": 1.0,
+          "f1": 0.9863013698630136,
+          "support": 36,
+          "tp": 36,
+          "fp": 1,
+          "fn": 0,
+          "tn": 23
+        },
+        "method": {
+          "precision": 0.9705882352941176,
+          "recall": 1.0,
+          "f1": 0.9850746268656716,
+          "support": 33,
+          "tp": 33,
+          "fp": 1,
+          "fn": 0,
+          "tn": 26
+        },
+        "result": {
+          "precision": 0.96875,
+          "recall": 1.0,
+          "f1": 0.9841269841269841,
+          "support": 31,
+          "tp": 31,
+          "fp": 1,
+          "fn": 0,
+          "tn": 28
+        },
+        "measurement": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 31,
+          "tp": 31,
+          "fp": 0,
+          "fn": 0,
+          "tn": 29
+        }
+      },
+      "zero_division": 0
+    }
+  },
+  "same_test_metrics": true,
+  "same_dataset_freeze": true,
+  "same_config": true,
+  "same_model_weights_sha256": true,
+  "purpose": "reproduction only; no additional model selection or test-guided adjustments"
+}

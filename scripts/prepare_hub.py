@@ -49,11 +49,13 @@ def main():
         if benchmark["model_manifest_sha256"] != sha256(args.run / "model/manifest.json"):
             raise ValueError("benchmark foi produzido para outro checkpoint")
         shutil.copytree(args.run / "model", model)
+        shutil.copy2(args.run / "model/manifest.json", model / "training-manifest.json")
         card = (model / "README.md").read_text()
         start = card.index("**Status:")
         end = card.index("\n\n", start)
         card = card[:start] + "**Status: checkpoint ajustado; métricas sintéticas abaixo.**" + card[end:]
         card = card.replace("Model Card em preparação", "Model Card")
+        card = card.replace("Treino previsto:", "Treino executado:")
         start = card.index("Avaliação pendente:")
         end = card.index("\n\n", start)
         lines = ["Avaliação final contra referências sintéticas revisadas pela mesma IA:", "",
@@ -64,6 +66,14 @@ def main():
                   f"Época selecionada por validação: {metadata['selected_epoch']}.",
                   "Contagens, suportes e ambiente completos em benchmark.json e patchinsight.json."]
         card = card[:start] + "\n".join(lines) + card[end:]
+        card += ("\n\nTreino executado em GPU local NVIDIA RTX A1000 6 GB, Python 3.11.14. "
+                 "Não houve sessão Kaggle/Colab nesta execução nem contratação de computação. "
+                 "O PyTorch avisou sobre atenção backward não determinística; não se alega "
+                 "identidade bit a bit entre retreinos. O ganho observado é pequeno e não "
+                 "comprova superioridade em currículos reais.\n\n"
+                 "O benchmark referencia o manifest original do treino, preservado em "
+                 "`training-manifest.json`; `manifest.json` cobre o bundle publicado, "
+                 "incluindo esta card atualizada.\n")
         (model / "README.md").write_text(card)
         shutil.copy2(args.benchmark, model / "benchmark.json")
         write_manifest(model)

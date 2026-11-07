@@ -1,32 +1,39 @@
 {
-  "generated_at": "2026-11-07T12:20:27.282882+00:00",
-  "python": "3.13.5",
-  "python_311_runtime_verified": false,
+  "generated_at": "2026-11-07T12:31:58.274088+00:00",
+  "python": "3.11.14",
+  "python_311_runtime_verified": true,
   "python_311_syntax": {
     "status": "passed",
-    "files": 17
+    "files": 18
   },
-  "core_tests": {
+  "tests": {
+    "scope": "full",
+    "command": [
+      "/home/efpatti/Documents/Projects/patch-insight/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-v",
+      "--junitxml=reports/pytest.xml"
+    ],
+    "real_model_requested": true,
     "returncode": 0,
-    "stdout": "",
-    "stderr": "test_freeze_and_splits (test_core.DataTests.test_freeze_and_splits) ... ok\ntest_reject_tampering (test_core.DataTests.test_reject_tampering) ... ok\ntest_invalid (test_core.MetricTests.test_invalid) ... ok\ntest_known_confusion (test_core.MetricTests.test_known_confusion) ... ok\ntest_measurement (test_core.RuleTests.test_measurement) ... ok\ntest_negation_and_future (test_core.RuleTests.test_negation_and_future) ... ok\ntest_structural_fixtures (test_core.RuleTests.test_structural_fixtures) ... ok\ntest_technology_boundaries_aliases (test_core.RuleTests.test_technology_boundaries_aliases) ... ok\ntest_invalid (test_core.TextTests.test_invalid) ... ok\ntest_normalization_preserves_case_accents (test_core.TextTests.test_normalization_preserves_case_accents) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 14.266s\n\nOK\n"
+    "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.11.14, pytest-8.4.2, pluggy-1.7.0 -- /home/efpatti/Documents/Projects/patch-insight/.venv/bin/python\ncachedir: .pytest_cache\nrootdir: /home/efpatti/Documents/Projects/patch-insight\nconfigfile: pyproject.toml\ntestpaths: tests\ncollecting ... collected 15 items\n\ntests/test_contract.py::test_strict_input_and_output PASSED              [  6%]\ntests/test_contract.py::test_cli_json_and_stderr PASSED                  [ 13%]\ntests/test_contract.py::test_no_silent_heuristic_fallback PASSED         [ 20%]\ntests/test_core.py::TextTests::test_invalid PASSED                       [ 26%]\ntests/test_core.py::TextTests::test_normalization_preserves_case_accents PASSED [ 33%]\ntests/test_core.py::RuleTests::test_measurement PASSED                   [ 40%]\ntests/test_core.py::RuleTests::test_negation_and_future PASSED           [ 46%]\ntests/test_core.py::RuleTests::test_structural_fixtures PASSED           [ 53%]\ntests/test_core.py::RuleTests::test_technology_boundaries_aliases PASSED [ 60%]\ntests/test_core.py::MetricTests::test_invalid PASSED                     [ 66%]\ntests/test_core.py::MetricTests::test_known_confusion PASSED             [ 73%]\ntests/test_core.py::DataTests::test_freeze_and_splits PASSED             [ 80%]\ntests/test_core.py::DataTests::test_reject_tampering PASSED              [ 86%]\ntests/test_model.py::test_tiny_local_multilabel_roundtrip PASSED         [ 93%]\ntests/test_model.py::test_real_checkpoint PASSED                         [100%]\n\n- generated xml file: /home/efpatti/Documents/Projects/patch-insight/reports/pytest.xml -\n============================= 15 passed in 19.65s ==============================\n",
+    "stderr": ""
   },
   "available_modules": {
-    "pydantic": false,
-    "pytest": false,
-    "torch": false,
-    "transformers": false,
-    "sklearn": false
+    "pydantic": true,
+    "pytest": true,
+    "torch": true,
+    "transformers": true,
+    "sklearn": true
   },
-  "not_executed": [
-    "pytest_contract",
-    "pytest_ml_smoke",
-    "real_model_loading",
-    "finetuning",
-    "frozen_encoder_baseline",
-    "final_test_benchmark",
-    "docker_offline",
-    "clean_python311_reproduction"
-  ],
-  "lockfile_exists": false
+  "evidence_files": {
+    "finetuning": true,
+    "frozen_encoder_baseline": true,
+    "final_benchmark": true,
+    "docker_offline": true,
+    "clean_python311_reproduction": true
+  },
+  "lockfile_exists": true,
+  "evidence_updated_at": "2026-11-07T12:36:39.348529+00:00"
 }

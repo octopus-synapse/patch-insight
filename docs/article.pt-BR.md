@@ -1,10 +1,11 @@
 # PatchInsight: componentes textuais, dados sintéticos e um experimento auditável
 
-**Artigo de desenvolvimento — comparação final pendente.** O PatchInsight
-investiga classificação de componentes de descrições profissionais em português.
-Até aqui, há dados congelados, pipelines implementados e uma execução real do
-baseline heurístico na validação. Ainda não há evidência de fine-tuning ou
-superioridade de um modelo neural.
+O PatchInsight compara regras, embeddings fixos e fine-tuning completo de um
+encoder em descrições profissionais em português. No teste sintético congelado,
+o BERTimbau ajustado obteve macro-F1 de 0,9911 e a regressão sobre embeddings,
+0,9888. A diferença foi pequena e seu intervalo por reamostragem inclui zero;
+a experiência não sustenta uma alegação de superioridade robusta do fine-tuning.
+Há código, dados, checkpoint e relatórios para auditar a execução.
 
 ## O problema
 
@@ -20,7 +21,7 @@ uma fórmula narrativa. Por isso a interface não retorna notas nem ranking.
 
 ## Arquitetura e hipótese
 
-O classificador proposto é BERTimbau Base, encoder pré-treinado para português,
+O classificador é BERTimbau Base, encoder pré-treinado para português,
 com uma cabeça de cinco saídas sigmoid. O treinamento atualiza todos os pesos
 com perda binária por rótulo. A revisão do encoder é fixada e os parâmetros
 constam de `configs/experiment.json`.
@@ -78,18 +79,52 @@ de desenvolvimento, sem comparação neural e sem avaliação do teste. O recall
 de ação indica a fragilidade da cobertura lexical; as precisões elevadas
 devem ser lidas junto à regularidade artificial dos dados.
 
-## Reprodução e trabalho pendente
+## Comparação final e incerteza
 
-Os módulos de treino local e notebook são os mesmos. A seleção usa macro-F1
-de validação; os limiares permanecem em 0,5. O comando final compara os três
-métodos e salva contagens de erros por rótulo e previsões por ID. Não usar os
-erros de teste para ajustar essa versão.
+Após encerrar a seleção pela validação, os três métodos foram avaliados nos
+mesmos 60 textos de teste. O checkpoint escolhido foi o da época 5, com macro-F1
+de validação 0,996923. Os limiares permaneceram em 0,5; não houve ajuste pelo teste.
 
-Nesta implementação, o terminal não conseguiu resolver DNS, não tinha as
-dependências de ML nem Python 3.11, a GPU não respondeu e o daemon Docker
-estava inacessível. Assim, o lock completo, o treino, o checkpoint, o benchmark
-final e a reprodução limpa continuam pendentes. Dez testes do núcleo passaram
-com Python 3.13.5; isso não substitui a validação da stack completa.
+| Método | Macro-F1 | Micro-F1 | Exact match |
+|---|---:|---:|---:|
+| Heurísticas | 0,6791 | 0,7634 | 0,3333 |
+| Encoder congelado + regressão | 0,9888 | 0,9878 | 0,9333 |
+| BERTimbau ajustado | 0,9911 | 0,9908 | 0,9500 |
+
+A heurística não reconheceu nenhuma das ações positivas do teste, cujo vocabulário
+não estava coberto por seus verbos. Esse resultado negativo foi preservado;
+não foram ampliadas as regras para melhorar o teste. A baseline congelada ficou
+próxima do fine-tuning, mostrando que o ajuste completo acrescentou pouco nesta
+amostra. Os três erros binários do modelo ajustado foram falsos positivos de
+contexto, método e resultado, um de cada.
+
+A diferença de macro-F1 entre fine-tuning e regressão foi 0,002275. Um bootstrap
+pareado pelas 15 origens, com 2.000 reamostragens e seed 42, produziu intervalo
+percentil de 95% de −0,010818 a 0,014463. O intervalo descreve essa amostra
+sintética, que ainda compartilha moldes; não é uma validação populacional de
+currículos reais. Nem o ponto estimado nem os F1 elevados justificam extrapolar
+para avaliação de profissionais.
+
+As métricas por rótulo, contagens TP/FP/FN/TN e previsões por ID estão em
+`reports/final/benchmark.json` e `predictions.jsonl`. A análise de erros está em
+`reports/final/error-analysis.md`. Esses erros foram usados somente para relatar
+limites, sem novo treino, ajuste de limiar ou geração de dados da v0.1.
+
+## Reprodução
+
+O treino foi executado em uma GPU local NVIDIA RTX A1000 de 6 GB, com Python
+3.11.14 e dependências fixadas por uv.lock. O notebook chama os mesmos módulos
+versionados para reprodução em Kaggle/Colab gratuitos; não se alega que a
+execução publicada ocorreu nessas plataformas. Nenhuma computação paga foi
+contratada. A impossibilidade inicial de rede e acesso ao hardware foi resolvida
+antes dos experimentos reais.
+
+Quinze testes passaram, incluindo contratos, regras, dados, atualização de pesos
+em BERT minúsculo e carregamento do checkpoint real. O BERT minúsculo é apenas
+um teste técnico e não entra no benchmark. O PyTorch emitiu aviso de atenção
+backward não determinística; seeds e ambiente estão registrados, mas não se
+promete identidade bit a bit entre retreinos. A evidência de reprodução em
+ambiente separado e de container está em `docs/status.md` e `reports/`.
 
 O projeto é independente e motivado por uma candidatura profissional. A
 contribuição pretendida é demonstrar o ciclo experimental com evidência do

@@ -1,0 +1,52 @@
+{
+  "model": {
+    "repo_id": "enzoferracini/patchinsight-bertimbau-ptbr",
+    "revision": "f2fb6d8afac7979d754efd947f172c1105a9883c",
+    "private": false,
+    "files": [
+      ".gitattributes",
+      "BERTIMBAU-MIT.txt",
+      "LICENSE",
+      "README.md",
+      "baselines/frozen.json",
+      "benchmark.json",
+      "config.json",
+      "manifest.json",
+      "model.safetensors",
+      "patchinsight.json",
+      "special_tokens_map.json",
+      "tokenizer.json",
+      "tokenizer_config.json",
+      "training-environment.json",
+      "training-manifest.json",
+      "training.json",
+      "vocab.txt"
+    ]
+  },
+  "dataset": {
+    "repo_id": "enzoferracini/patchinsight-synthetic-ptbr",
+    "revision": "6a5a7753a2d92d398b63b553c99bccca2785c7fc",
+    "private": false,
+    "files": [
+      ".gitattributes",
+      "LICENSE.md",
+      "README.md",
+      "dataset.jsonl",
+      "docs/annotation-guide.md",
+      "docs/data-review.md",
+      "freeze.json",
+      "source/development.tsv",
+      "source/prompts.json",
+      "source/test.tsv",
+      "splits/test.jsonl",
+      "splits/train.jsonl",
+      "splits/validation.jsonl"
+    ]
+  },
+  "verification": {
+    "pinned_model_download": "passed",
+    "local_only_model_inference": "passed",
+    "published_weights_match_training": true,
+    "pinned_dataset_download_and_freeze": "passed"
+  }
+}

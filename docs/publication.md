@@ -4,6 +4,11 @@ Código: https://github.com/octopus-synapse/patch-insight . Commits em inglês,
 Conventional Commits, sem trailer Co-authored-by. Nenhum push é considerado
 concluído sem conferir o SHA e os arquivos remotos. O PDF fica fora da publicação.
 
+Artefatos publicados e revisões conferidas em `reports/publication.json`:
+dataset `enzoferracini/patchinsight-synthetic-ptbr` e modelo
+`enzoferracini/patchinsight-bertimbau-ptbr`. O histórico preserva a Model Card
+inicial sem pesos e o commit posterior com o checkpoint avaliado.
+
 No Hugging Face, há dois repositórios de artefatos. Isso permite manter pesos e
 dados com seus respectivos históricos e licenças, enquanto o código permanece
 em um único GitHub. Criar os espaços agora é útil para documentar a progressão;
@@ -40,17 +45,16 @@ O diretório ajustado contém `model.safetensors`, configuração, tokenizer,
 somente os pesos do encoder base como se fossem um modelo treinado da tarefa.
 Ao modificar a Model Card dentro do bundle, regenerar seu manifest.
 
-Com Hugging Face autenticado localmente, o SDK pode enviar a pasta completa:
+Com Hugging Face autenticado localmente, preparar e enviar uma nova publicação:
 
-```python
-from huggingface_hub import HfApi
-api = HfApi()
-api.upload_folder(repo_id="SEU_USUARIO/patchinsight-synthetic-ptbr",
-                  repo_type="dataset", folder_path="data",
-                  commit_message="feat(data): publish frozen synthetic dataset")
-api.upload_folder(repo_id="SEU_USUARIO/patchinsight-bertimbau-ptbr",
-                  repo_type="model", folder_path="artifacts/run-42/model",
-                  commit_message="feat(model): publish evaluated multilabel checkpoint")
+```bash
+hf auth whoami
+python3 scripts/prepare_hub.py --namespace enzoferracini --stage trained \
+  --output artifacts/hub-next
+hf upload enzoferracini/patchinsight-synthetic-ptbr artifacts/hub-next/dataset . \
+  --type dataset --commit-message 'feat(data): publish frozen synthetic dataset'
+hf upload enzoferracini/patchinsight-bertimbau-ptbr artifacts/hub-next/model . \
+  --type model --commit-message 'feat(model): publish evaluated multilabel checkpoint'
 ```
 
 Não colar tokens no chat nem versioná-los. Conferir os SHAs retornados pelo Hub,

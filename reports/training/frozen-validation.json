@@ -1,0 +1,59 @@
+{
+  "n": 60,
+  "macro_f1": 0.9934095136858889,
+  "micro_f1": 0.9936305732484076,
+  "exact_match": 0.9666666666666667,
+  "per_label": {
+    "action": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 32,
+      "tp": 32,
+      "fp": 0,
+      "fn": 0,
+      "tn": 28
+    },
+    "context": {
+      "precision": 0.9722222222222222,
+      "recall": 1.0,
+      "f1": 0.9859154929577465,
+      "support": 35,
+      "tp": 35,
+      "fp": 1,
+      "fn": 0,
+      "tn": 24
+    },
+    "method": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 32,
+      "tp": 32,
+      "fp": 0,
+      "fn": 0,
+      "tn": 28
+    },
+    "result": {
+      "precision": 0.9629629629629629,
+      "recall": 1.0,
+      "f1": 0.9811320754716981,
+      "support": 26,
+      "tp": 26,
+      "fp": 1,
+      "fn": 0,
+      "tn": 33
+    },
+    "measurement": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 31,
+      "tp": 31,
+      "fp": 0,
+      "fn": 0,
+      "tn": 29
+    }
+  },
+  "zero_division": 0
+}

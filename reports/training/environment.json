@@ -1,0 +1,35 @@
+{
+  "environment": {
+    "python": "3.11.14",
+    "platform": "Linux-7.1.8+deb13-amd64-x86_64-with-glibc2.41",
+    "packages": {
+      "torch": "2.6.0",
+      "transformers": "4.57.1",
+      "numpy": "2.3.4",
+      "scikit-learn": "1.7.2",
+      "pydantic": "2.12.4"
+    },
+    "source_sha256": {
+      "__init__.py": "07f1e581fc9fb8256b565d0f2f968af61622da5161e441c0487e0d122d71b80e",
+      "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "cli.py": "f9cc4684ec995264cf1223c79a4be5df33d6c5221d797e544f813244db90bd8b",
+      "data.py": "533b9618df7d41c1402a9fa6b02e6cd9f1ac0fdaad549d93cce98784070d52de",
+      "evaluate.py": "386dc2f86c890a3484b714e8311ce95cb771adae8a5cc91ecb266cba4e08712e",
+      "experiment.py": "683db32333171a30d6747980b705791ac17db70f6a90a8af82b6da5186b22c0e",
+      "metrics.py": "a1374b9fa54c1ae278a5b81c52317e06b6b1f97726a726afe5cfc7d924c232e3",
+      "model.py": "697d177b7634b3dbdb29731457774f80f36fd55ac23f2576d8af1a0565ce29b2",
+      "rules.py": "0c2a0dcbbac8220abfd38bc93830a699b52366e781f5b4b977329e5473d046bf",
+      "schema.py": "4afcf1dc0cf75a8eb1392a7cbbf69c6727fb566c44da94ed4e68733024c144d4",
+      "text.py": "67132ac951f1b81972229e75ca311ef8dab8dc810992f8059717528ed79bc43e"
+    }
+  },
+  "device": "cuda",
+  "gpu": "NVIDIA RTX A1000 6GB Laptop GPU, 620.70.06, 6144 MiB",
+  "execution": "local; free existing hardware; no Kaggle session claimed",
+  "commands": [
+    "patchinsight.experiment frozen --device cuda --output artifacts/run-42",
+    "patchinsight.experiment finetune --device cuda --output artifacts/run-42"
+  ],
+  "seed": 42,
+  "warning": "PyTorch reported non-deterministic memory efficient attention backward; bitwise retraining equivalence is not claimed."
+}

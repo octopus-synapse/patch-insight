@@ -9,7 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 ALLOW = ["src", "tests", "data", "configs", "scripts", "notebooks", "docs", "licenses",
          ".github", "README.md", "LICENSE", "pyproject.toml", ".python-version", ".gitignore",
          ".dockerignore", "Dockerfile", "reports/data-audit.json", "reports/development",
-         "reports/verification.json"]
+         "reports/verification.json", "reports/training", "reports/final",
+         "reports/clean-room.json", "reports/publication.json", "reports/docker.json",
+         "reports/pytest.xml", "reports/pytest-initial.xml", "artifacts/.gitkeep"]
 
 
 def main():

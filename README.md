@@ -5,11 +5,21 @@ Classificação multilabel de componentes em descrições profissionais em pt-BR
 detecção semântica por encoder das regras que reconhecem XYZ, STAR,
 Action–Result e Action–Technology. Não atribui notas nem classifica pessoas.
 
-**Estado atual: implementação em verificação, fine-tuning em execução.** Há 400
-exemplos congelados, lock resolvido, baselines, CLI tipada, regras e notebook.
-Os testes passaram em Python 3.11 (14 aprovados e um aguardando checkpoint real).
-O dataset e a Model Card inicial estão publicados no Hugging Face. O benchmark
-final e o container aguardam o checkpoint selecionado. [Estado](docs/status.md).
+**Checkpoint treinado e benchmark final executado.** O fine-tuning completo
+selecionou a época 5 por macro-F1 de validação. Quinze testes passaram em
+Python 3.11, incluindo carregamento do checkpoint real. [Estado](docs/status.md).
+
+| Método | Macro-F1 | Micro-F1 | Exact match |
+|---|---:|---:|---:|
+| Heurísticas | 0,6791 | 0,7634 | 0,3333 |
+| Encoder congelado + regressão | 0,9888 | 0,9878 | 0,9333 |
+| BERTimbau ajustado | 0,9911 | 0,9908 | 0,9500 |
+
+Teste: 60 textos sintéticos de 15 origens, anotados e revisados pela mesma IA.
+O ganho de macro-F1 frente à regressão foi 0,0023; bootstrap por origem resultou
+em intervalo de 95% de −0,0108 a 0,0145. Não há evidência de superioridade robusta
+nem de generalização para currículos reais. [Benchmark](reports/final/README.md)
+· [Erros e incerteza](reports/final/error-analysis.md).
 
 ## Arquitetura
 
@@ -45,8 +55,8 @@ PYTHONPATH=src python3 -m patchinsight.experiment heuristic --output reports/dev
 ```
 
 O baseline na **validação** obteve macro-F1 0,8530, micro-F1 0,8623 e exact
-match 0,5333, sobre 60 referências sintéticas. São medidas de desenvolvimento;
-o teste não foi avaliado. Detalhes: [JSON](reports/development/heuristic-validation.json).
+match 0,5333. São medidas de desenvolvimento, distintas do teste final acima.
+Detalhes: [JSON](reports/development/heuristic-validation.json).
 
 ## Preparar o ambiente completo
 
@@ -66,7 +76,9 @@ Transformers, scikit-learn e Pydantic. Não requer API paga.
 ## Treinar e comparar
 
 O [notebook Kaggle/Colab](notebooks/train.ipynb) chama os mesmos módulos Python
-da reprodução local. O treino nunca usa os exemplos de teste. A revisão do
+da reprodução local. A execução publicada utilizou a GPU local NVIDIA RTX
+A1000 6 GB, sem custo de nuvem; não se alega sessão no Kaggle/Colab. O treino
+nunca usa os exemplos de teste. A revisão do
 [BERTimbau](https://huggingface.co/neuralmind/bert-base-portuguese-cased/commit/94d69c95f98f7d5b2a8700c420230ae10def0baa)
 é fixa; configuração em `configs/experiment.json`.
 
@@ -93,6 +105,17 @@ Resultados negativos também devem ser publicados. [Protocolo](docs/experiments.
 
 ## Inferência e contrato
 
+Para usar o checkpoint publicado sem treinar, baixe sua revisão fixa:
+
+```bash
+hf download enzoferracini/patchinsight-bertimbau-ptbr \
+  --revision f2fb6d8afac7979d754efd947f172c1105a9883c --local-dir artifacts/model
+uv run --frozen --extra ml patchinsight predict --model artifacts/model \
+  --text 'Revisei as consultas com SQL e reduzi a espera em 20%.' --json
+```
+
+Para usar seu próprio treino ou o baseline:
+
 ```bash
 uv run --frozen patchinsight predict --model artifacts/run-42/model \
   --text 'Revisei as consultas com SQL e reduzi a espera em 20%.' --json
@@ -115,21 +138,29 @@ bash scripts/docker_smoke.sh
 ```
 
 O Dockerfile incorpora o checkpoint verificado e carrega com modo offline.
-O smoke test roda com `--network none`. Build e execução não foram verificados
-neste ambiente porque o daemon não está acessível.
+O smoke test roda com `--network none`, filesystem somente leitura e usuário
+sem privilégios. Build e inferência offline foram verificados com o checkpoint
+real; [evidência](reports/docker.json). Se já baixou o modelo para
+`artifacts/model`, execute diretamente o smoke test, sem copiar outro bundle.
 
 O repositório [octopus-synapse/patch-insight](https://github.com/octopus-synapse/patch-insight)
-guardará código, dados e documentação. No Hugging Face,
-um repositório de modelo guardará os pesos e outro de dataset facilitará o
-download dos dados. Destinos: [dataset](https://huggingface.co/datasets/enzoferracini/patchinsight-synthetic-ptbr) e [modelo](https://huggingface.co/enzoferracini/patchinsight-bertimbau-ptbr). [Publicação](docs/publication.md).
-O [artigo em pt-BR](docs/article.pt-BR.md) relata o método e o único resultado
-real disponível; a comparação final está pendente.
+contém código, dados e documentação. No Hugging Face estão o
+[dataset](https://huggingface.co/datasets/enzoferracini/patchinsight-synthetic-ptbr)
+e o [modelo ajustado](https://huggingface.co/enzoferracini/patchinsight-bertimbau-ptbr).
+Revisões exatas: [publicação](reports/publication.json). O
+[artigo em pt-BR](docs/article.pt-BR.md) relata método, comparação final,
+incerteza e limites. [Procedimento de publicação](docs/publication.md).
+
+A reprodução em um clone novo e uma nova virtualenv 3.11, com o mesmo lock,
+repetiu treino, seleção, teste e carregamento do modelo. Nessa máquina, os pesos
+e as métricas coincidiram; isso não garante identidade entre hardwares. Caches
+de downloads foram reutilizados. [Relatório](reports/clean-room.json).
 
 `python3 scripts/package_release.py` cria um pacote público por lista explícita
 em `artifacts/`, excluindo PDF, credenciais, ambientes e a especificação de
 planejamento original. O repositório local acompanha `main`, com remote SSH configurado.
 
-Código e futuro checkpoint: MIT, preservando aviso NeuralMind. Dados e artigo:
+Código e checkpoint: MIT, preservando aviso NeuralMind. Dados e artigo:
 CC BY 4.0. [Proveniência e licenças](licenses/DATA-AND-ARTICLE.md).
 
 Projeto autoral e independente, motivado por candidatura profissional. Não há
