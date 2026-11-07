@@ -1,0 +1,124 @@
+{
+  "generated_at": "2026-11-07T13:59:03.905462+00:00",
+  "software_version": "0.2.0",
+  "state": "local_working_tree_not_published",
+  "checkpoint_version": "0.1.0",
+  "python": "3.11.14",
+  "tests": {
+    "tests": 25,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "passed": 25
+  },
+  "core_without_ml": {
+    "tests": 19,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 3,
+    "passed": 16
+  },
+  "junit_sha256": "18cd5924ec546d3c50c563d3372cc0d59fd2c6441cda31179435253aeaddb0d7",
+  "core_junit_sha256": "dfc11aca54e67ba699ee6d37fc9f5248fd47783c864a2be1d59b784afbbbe091",
+  "python_311_syntax_files": 26,
+  "source_sha256": {
+    "scripts/build_dataset.py": "bf4b0ad5650f99d635e658d2eb81668964ce7d205a9d3aeba8a6b61c2ed04497",
+    "scripts/build_v02_suite.py": "c2d3a1c4d617d1ed9680c5f5d991e2cc44a4243b7ec07827a23808fc042a11e8",
+    "scripts/package_release.py": "d9d914d866b50b4f27be1a7d6488f469e2557e93e5fb8f5cb3e4393fba1bd17b",
+    "scripts/prepare_hub.py": "5145f7426229e09b427e01200a9415a8a5f2fbb2053ca73fee1db8a85320f46c",
+    "scripts/summarize_v02.py": "3427f9d705a8d7bc061e3da3386c3fd3cddbd8e2b90824cf539d0eecd42d0e40",
+    "scripts/verify_local.py": "f46627d3713e05d5067a017e14e7cfc6098d40441b82cd73a4c176035206c5f5",
+    "src/patchinsight/__init__.py": "3d499b49e5fa937ecc39186f714f271b94e1baba7a98950b8ad8f0c7787b8949",
+    "src/patchinsight/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/patchinsight/assessment.py": "0ab401c13f04752bcf4046ac1ff10c6ae8339cbfeb113f68406a7379674df4e9",
+    "src/patchinsight/cli.py": "e4ab82eb9ac1f63d9cf1c8e8844c09087f3a45db1cd1acb444883ab05fcd6277",
+    "src/patchinsight/data.py": "533b9618df7d41c1402a9fa6b02e6cd9f1ac0fdaad549d93cce98784070d52de",
+    "src/patchinsight/demo.py": "6f295c1595e96b68af894c3232b662e1e51135b832a40a6bb813684f89a682b4",
+    "src/patchinsight/evaluate.py": "386dc2f86c890a3484b714e8311ce95cb771adae8a5cc91ecb266cba4e08712e",
+    "src/patchinsight/experiment.py": "683db32333171a30d6747980b705791ac17db70f6a90a8af82b6da5186b22c0e",
+    "src/patchinsight/metrics.py": "a1374b9fa54c1ae278a5b81c52317e06b6b1f97726a726afe5cfc7d924c232e3",
+    "src/patchinsight/model.py": "4c4d4e5c044168ba7ff657d51e213fec81005bcccbcbbbc8848c3a4ea30b9e6f",
+    "src/patchinsight/research.py": "f113257da11d1b357a588eea9175916c8deb16773f3306cd1dbfc0645be23ede",
+    "src/patchinsight/rules.py": "0bed977e7b005bf37e235615760cc9a3eaa950d86a8da65738bc2d99d54e37a7",
+    "src/patchinsight/schema.py": "1dac19929fd05adf72e5928c27156253f566aa1ead17c59ef4b20d85f9175343",
+    "src/patchinsight/service.py": "aa150c81ff2025a3252f5f0ed0237073cd9af295752283a770a327fa3e357299",
+    "src/patchinsight/text.py": "67132ac951f1b81972229e75ca311ef8dab8dc810992f8059717528ed79bc43e",
+    "tests/test_assessment.py": "3a570ab01bda1d9a7a8d77c221a03377a659afae5ab1c0219b327b832791f8dd",
+    "tests/test_contract.py": "6d08b7de9b26df6e9164bec73289051959d128f4710af761b0e120affde63684",
+    "tests/test_core.py": "0109d2744face0d65d769f1708511c2643d592db41eb9d4dc30a204e6c74cfe8",
+    "tests/test_model.py": "c51c5535b4e1c122aa7bc570ae0ec8311bad1b8aac1327ce4eb41367208422cb",
+    "tests/test_v02.py": "6b2986f20de7f80fca45336d7ed72a2cef043075671040cc81e3e208a6f78f2a"
+  },
+  "v01_preservation": {
+    "base_commit": "21979dbac1d644546dce5631deee49d1df9c95ed",
+    "unchanged_files": {
+      "data/README.md": "bee45d1e6e4774bde5954598e192a7a5f98ece480469a90fdebfc123e22bdca7",
+      "data/dataset.jsonl": "054c0a19f2fb886c32018c1d1e8bf9b3c2ee6d32ad8f9acda58619ff5f94a9eb",
+      "data/freeze.json": "19b28387c1084c074ae4fe88c972335022ef9c1d8fe9958ff6bd86e1ccdc1e03",
+      "data/source/development.tsv": "05a302da15ff7f13795b1b9df4bfb20928c05820b0f7c83fffeaac7687f791b8",
+      "data/source/prompts.json": "56788c27df679e38ef5930a1345d17b029ca4c7ea3a5a66aa589ccd9727eabe1",
+      "data/source/test.tsv": "10d852d417b4b9b80538e807255716f566dffa0fed00dfec4f9b35e6ead72432",
+      "data/splits/test.jsonl": "67c5244e4633f226f9d5453bac22a39e21d537d59e9b61d0ced823f97e96f176",
+      "data/splits/train.jsonl": "148466e584ac72e39e5307b6a7ab09dd7a7f2f852c51493eeb1f3bce2b13e4f0",
+      "data/splits/validation.jsonl": "fab146a33a5ed52e73407b687b2344b516fe1fb099b96b5b554aff00daa86306",
+      "reports/final/README.md": "afbec50baea342a022851e8129ab059f2d4fc2b67a9c860421b366f9c96ecee3",
+      "reports/final/benchmark.json": "97c56082c4fd2767baae99cc79ce239437d959c5876c81754e2f2e7020deb5ee",
+      "reports/final/error-analysis.md": "e6b09c9a9cd63c5f04f08838a7d5bae895f074ac7a5c887b0c5728cdb12ec42e",
+      "reports/final/predictions.jsonl": "e10149701fb267a3269b062e8e56dbf2156132362ba843e2908523f5933142b5",
+      "reports/final/uncertainty.json": "4513a288fe59a637736fcff71d1b373e2dc25af6df8230f653709a5f2ec2b254"
+    },
+    "weights_sha256": "3a11fc1a543890444f28287a9ac55768f3560100175d149356209d0ccbc26f26"
+  },
+  "suite_freeze_sha256": "6a3b01f29aa7aa3cc0a34be30da0dbb5f1a28bb64a54f85a65ae9a7689eb930d",
+  "policy_selection_sha256": "e9421da721954cee5dc699f3a38a90392da46c4553b4c61f8c8ee2060f0c787c",
+  "schema_matches_pydantic": true,
+  "browser": {
+    "browser": "Firefox headless",
+    "real_backend": "bert",
+    "checks": [
+      "analysis",
+      "sample_buttons",
+      "empty_input_error",
+      "mobile_no_overflow",
+      "metric_ranking",
+      "dataset_switch"
+    ],
+    "screenshots": [
+      "artifacts/v02-demo-desktop.png",
+      "artifacts/v02-demo-mobile.png"
+    ]
+  },
+  "wheel_install": {
+    "environment": "/tmp/patchinsight-v02-wheel",
+    "version": "0.2.0",
+    "checks": [
+      "installed non-editable package",
+      "loopback HTTP",
+      "bundled HTML",
+      "bundled comparison JSON"
+    ],
+    "wheel_sha256": "63f39c9d1a95c4c37a3f16b0feccfc46c2d81c1f584fa1b922023556e541fc7d"
+  },
+  "batch_real_backend": {
+    "valid_items": 2,
+    "item_errors": 1,
+    "order_preserved": true,
+    "observed_exit_code": 1
+  },
+  "docker": {
+    "image_id": "sha256:3ef502f14426852413971d84ee9677a55eb7e2a8bbdc1b8a0e8d766afe790b31",
+    "tag": "patchinsight:0.2.0",
+    "network": "none",
+    "read_only": true,
+    "user": "65532:65532",
+    "prediction_sha256": "73b2150db1002ea0fd4af22fa053d541fdbb9a599a02df0ab8a41015e2fe4319",
+    "real_checkpoint": true
+  },
+  "limitations": [
+    "AI self review, no human or independent annotation",
+    "No new fine-tuning or external validation",
+    "No abstention cutoff met development criteria",
+    "Latency: 12 repetitions; process CUDA memory with both encoders resident",
+    "v0.2 not pushed, deployed externally, or released; artifacts paths are local evidence"
+  ]
+}

@@ -1,0 +1,32 @@
+10000	natural,short	Inspecionei a sequência de inicialização.	Inspeção concreta sem cenário, técnica ou conclusão.
+10100	natural,method	Auditei as permissões por meio de uma lista de verificação.	Procedimento explícito; auditoria não afirma correção.
+11000	natural,context	No time de infraestrutura, investiguei a perda de pacotes.	Time fornece contexto; objeto não afirma resultado.
+11100	natural,method	Durante a mudança de sede, examinei a conectividade usando captura de tráfego.	Circunstância e meio, sem efeito declarado.
+10010	natural,result	Entreguei o roteiro de recuperação.	Entrega concreta sem números.
+10110	natural,result	Disponibilizei a biblioteca usando Docker; o pacote ficou acessível.	Ação, método e disponibilidade explícitos.
+11111	natural,quantified	No processo de conciliação, ajustei as consultas com PostgreSQL e o tempo caiu 22%.	Cenário, atividade, ferramenta, efeito e medida.
+11011	natural,quantified	Na equipe de entregas, reorganizei os turnos. O atraso caiu de 30 para 10 minutos.	Mudança e medida explícitas, sem procedimento separado.
+00000	adversarial,version	Java 21, TensorFlow 2.16 e Kubernetes 1.30.	Versões em lista não configuram medida ou método aplicado.
+00000	adversarial,date	Em 2024. Ocorrência OPS-719.	Data e identificador não medem realização.
+00001	adversarial,volume	Sete serviços por região.	Quantidade por extenso, sem ação ou contexto narrativo.
+01001	natural,tenure	Tenho seis anos de experiência no setor de pagamentos.	Duração e setor; experiência genérica não é contribuição concreta.
+00000	adversarial,vague	Perfil colaborativo com foco em excelência e alta performance.	Qualidades alegadas não são componentes de uma realização.
+00000	adversarial,negation	Nunca migrei o armazenamento.	Migração negada, sem outros componentes.
+00101	adversarial,future	Planejo reduzir os custos em 17% por meio de compressão.	Futuro preserva método e medida, sem efeito realizado.
+10010	adversarial,negation	Não migrei os arquivos; entreguei o plano de contingência.	Negação restrita à primeira oração; segunda afirma entrega.
+00100	adversarial,nominal	Comparação de checksums como procedimento.	Abordagem nominal explícita, sem contribuição afirmada.
+00010	natural,impersonal	A conexão foi recuperada.	Mudança identificável sem ação pessoal.
+00011	natural,impersonal	O consumo de memória diminuiu 35%.	Resultado quantificado sem autoria.
+01000	natural,context	A equipe de compras lidava com pedidos duplicados.	Equipe e problema sem intervenção ou efeito.
+11100	natural,reordered	Por meio de testes exploratórios, examinei os erros no aplicativo de reservas.	Procedimento anteposto e cenário explícito; sem solução.
+10100	natural,informal	Dei uma olhada nas requisições usando o depurador pra achar a causa.	Inspeção delimitada e ferramenta; propósito não é resultado.
+11010	natural,passive	No setor de logística, coube a mim entregar o inventário, que ficou disponível.	Atribuição e conclusão afirmadas com contexto.
+00000	adversarial,vague	Colaborei com transformações relevantes e gerei muito valor.	Sem atividade ou efeito identificável segundo o guia.
+10001	adversarial,volume	Inspecionei 14 arquivos.	Inspeção e volume sem efeito.
+10101	adversarial,volume	Comparei 90 requisições com análise manual dos cabeçalhos.	Comparação, técnica e contagem; sem entrega.
+10010	natural,qualitative	Corrigi a navegação e os links voltaram a abrir.	Ação realizada e efeito qualitativo.
+00000	adversarial,question	Você automatizou a exportação?	Pergunta não afirma atividade concluída.
+00000	adversarial,conditional	Se eu tivesse validado a configuração, o bloqueio teria sido evitado.	Hipótese contrafactual sem realização.
+01000	adversarial,future	Na equipe de segurança, pretendo analisar os alertas.	Contexto afirmado mesmo com ação futura.
+11110	natural,multiclause	No sistema de credenciais havia acessos duplicados. Examinei os registros com Python; os acessos repetidos deixaram de ocorrer.	Cenário, análise, meio e mudança; não prova causalidade.
+00010	adversarial,result_without_action	O endpoint já está disponível para os clientes.	Entrega acessível sem autoria explícita.

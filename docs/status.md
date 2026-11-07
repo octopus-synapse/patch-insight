@@ -1,3 +1,25 @@
+# Estado da v0.2 — 07/11/2026
+
+Implementada e verificada localmente, sem retreino ou republicação de checkpoint.
+Detalhes, resultados e comandos: [v02.md](v02.md). Revisão dos novos dados feita
+pelo próprio assistente IA, conforme solicitado, sem revisão humana independente.
+
+- 72 textos novos congelados: 36 desenvolvimento e 36 teste, 34 origens por split.
+- Macro-F1 no novo teste: heurística 0,6910; regressão 0,6196; BERT 0,5584.
+- Avaliação por F1, AP, ROC-AUC, MCC, Hamming, exact match, Brier e log loss;
+  confiabilidade, recortes, risco/cobertura e bootstrap por origem.
+- Temperatura ajustada só em desenvolvimento; melhora probabilística da regressão.
+  Nenhum cutoff atingiu o critério de abstenção; confiança não vira promessa de risco.
+- Inferência JSONL em lote, Action–Method e demo local com checkpoint real;
+  comparação interativa por métrica e acesso ao JSON versionado.
+- Pesos e dados/relatórios finais da v0.1 preservados; software/schema/regras 0.2.0.
+- Sem publicação externa da v0.2, integração ao Patch Careers ou computação paga.
+
+A evidência de verificação desta rodada está em `reports/v02/verification.json`.
+O registro histórico abaixo se refere exclusivamente à v0.1.
+
+---
+
 # Estado da v0.1 — 07/11/2026
 
 Implementação, treino, avaliação, publicação dos artefatos e verificações locais

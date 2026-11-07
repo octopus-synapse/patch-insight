@@ -18,8 +18,8 @@ uma página sem pesos deve dizer claramente “treinamento pendente”.
    nome sugerido `patchinsight-bertimbau-ptbr`; licença MIT; Public.
 2. Acessar https://huggingface.co/new-dataset. Nome sugerido
    `patchinsight-synthetic-ptbr`; licença CC BY 4.0; Public.
-3. Não criar Space nem contratar computação. O plano treina em Kaggle gratuito,
-   com Colab gratuito como reserva.
+3. Não criar Space nem contratar computação. A política vigente treina localmente;
+   Kaggle e Colab gratuitos são reservas.
 
 O Hub permite iniciar com README/Model Card e adicionar arquivos em commits
 posteriores. Guia: https://huggingface.co/docs/hub/repositories-getting-started .
@@ -60,3 +60,11 @@ hf upload enzoferracini/patchinsight-bertimbau-ptbr artifacts/hub-next/model . \
 Não colar tokens no chat nem versioná-los. Conferir os SHAs retornados pelo Hub,
 baixar a revisão fixa em um ambiente limpo e testar o carregamento real.
 Atualizar README, artigo e links somente com os destinos efetivos.
+
+## Estado local da v0.2
+
+A versão 0.2.0 do software e seus novos relatórios estão preparados localmente.
+Não foram enviados ao GitHub/Hub nem transformados em release pública nesta
+rodada. O checkpoint avaliado continua o da v0.1. Uma publicação posterior deve
+preservar essa distinção, os hashes históricos e a autoria/revisão por IA da
+nova suite. A demo é local, sem hospedagem externa ou Space.

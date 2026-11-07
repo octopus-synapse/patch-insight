@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "reference": "synthetic_same_ai_self_reviewed",
+  "counts": {
+    "development": 36,
+    "test": 36
+  },
+  "sha256": {
+    "source/development.tsv": "c5f4dd96cdd3e2b1ea08fa72161ebb5c1e4e81692f121a150dc984175cf4a402",
+    "source/test.tsv": "3f8f47addea468c0dc0096258e0cf4787cad95f771db1e7bb819fa5421fbcef6",
+    "suite.jsonl": "687ddf0c853e2fe0b22e6a735754081f3ad1e63f07a8339da8f78cb5aae37a5c",
+    "README.md": "a37f08cb044df75314390b993b99e974723929c173910366da921c6ffe434882",
+    "development.jsonl": "3a039e23c089234b20943d6883afa6823e834ce58dc95ce410c743143c890787",
+    "test.jsonl": "9749203e32559c63ff2cb58e797fc6134d7d944ef9edb591250bf62fdcc07a20",
+    "../../scripts/build_v02_suite.py": "c2d3a1c4d617d1ed9680c5f5d991e2cc44a4243b7ec07827a23808fc042a11e8"
+  },
+  "protocol": "data/v02/README.md; development fits policy; test only reports"
+}

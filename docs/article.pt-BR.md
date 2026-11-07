@@ -135,3 +135,29 @@ tamanho das afirmações, incluindo limitações e resultados negativos.
 - Souza, Nogueira e Lotufo, [BERTimbau Base](https://huggingface.co/neuralmind/bert-base-portuguese-cased).
 - [Guia e protocolo locais](annotation-guide.md), [experimentos](experiments.md), [Dataset Card](../data/README.md).
 - Código: MIT. Este artigo e os dados: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+## Continuação experimental: avaliação 0.2
+
+Os resultados anteriores pertencem à v0.1. Na continuação, os mesmos checkpoints
+foram avaliados sem retreino em 36 textos novos, de 34 origens, com outro conjunto
+de 36 textos usado somente em desenvolvimento. O próprio assistente escreveu,
+anotou e revisou os dados, conforme solicitado pelo responsável; não houve
+revisão humana, independência entre geração e revisão ou concordância medida.
+
+No novo teste, macro-F1 foi 0,6910 para heurísticas, 0,6196 para regressão e
+0,5584 para o BERT ajustado. A regressão teve AP macro de 0,8401, contra 0,7768
+do BERT. Os testes têm composições distintas e ambos são sintéticos; a queda
+não equivale a medir generalização em currículos reais. Ela mostra que o
+resultado original próximo do teto era restrito ao seu desenho experimental.
+
+A temperatura global foi ajustada somente no novo desenvolvimento e congelada
+antes do teste. Na regressão, Brier caiu de 0,1601 para 0,1355 e log loss de
+0,8540 para 0,4292, mantendo decisões no limiar 0,5. Isso melhora a avaliação
+probabilística neste conjunto, sem demonstrar calibração externa. Nenhum cutoff
+cumpriu erro observado de até 5% com pelo menos 50% de cobertura de decisões em
+desenvolvimento; a abstenção permanece desativada nas políticas fornecidas.
+
+A v0.2 também acrescenta inferência em lote, Action–Method e demonstração local
+com checkpoint real e comparação por métricas. Protocolo, recortes, scores,
+confiabilidade, incerteza e limitações: [avaliação 0.2](v02.md). Pesos, splits e
+relatórios finais da v0.1 foram preservados; não houve ajuste orientado pelos erros do novo teste.

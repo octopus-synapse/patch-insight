@@ -1,0 +1,86 @@
+{
+  "device": "cuda",
+  "environment": {
+    "python": "3.11.14",
+    "platform": "Linux-7.1.8+deb13-amd64-x86_64-with-glibc2.41",
+    "packages": {
+      "torch": "2.6.0",
+      "transformers": "4.57.1",
+      "numpy": "2.3.4",
+      "scikit-learn": "1.7.2",
+      "pydantic": "2.12.4"
+    },
+    "source_sha256": {
+      "__init__.py": "3d499b49e5fa937ecc39186f714f271b94e1baba7a98950b8ad8f0c7787b8949",
+      "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "assessment.py": "0ab401c13f04752bcf4046ac1ff10c6ae8339cbfeb113f68406a7379674df4e9",
+      "cli.py": "e4ab82eb9ac1f63d9cf1c8e8844c09087f3a45db1cd1acb444883ab05fcd6277",
+      "data.py": "533b9618df7d41c1402a9fa6b02e6cd9f1ac0fdaad549d93cce98784070d52de",
+      "demo.py": "fac1223c3abcfa885fc86a4451b99084550272f7bfe84d3bd05a1ccc36ce4b6e",
+      "evaluate.py": "386dc2f86c890a3484b714e8311ce95cb771adae8a5cc91ecb266cba4e08712e",
+      "experiment.py": "683db32333171a30d6747980b705791ac17db70f6a90a8af82b6da5186b22c0e",
+      "metrics.py": "a1374b9fa54c1ae278a5b81c52317e06b6b1f97726a726afe5cfc7d924c232e3",
+      "model.py": "4c4d4e5c044168ba7ff657d51e213fec81005bcccbcbbbc8848c3a4ea30b9e6f",
+      "research.py": "e34e5acdc8f755f9ea18ca1b00919975221b8aa721f2f0af73accb96d7b6b311",
+      "rules.py": "0bed977e7b005bf37e235615760cc9a3eaa950d86a8da65738bc2d99d54e37a7",
+      "schema.py": "1dac19929fd05adf72e5928c27156253f566aa1ead17c59ef4b20d85f9175343",
+      "service.py": "aa150c81ff2025a3252f5f0ed0237073cd9af295752283a770a327fa3e357299",
+      "text.py": "67132ac951f1b81972229e75ca311ef8dab8dc810992f8059717528ed79bc43e"
+    }
+  },
+  "load_all_methods_seconds": 1.0641264889854938,
+  "scope": "tokenização + modelo + scores; exclui JSON, regras e I/O; mesmo processo, textos de desenvolvimento",
+  "warmup_batches": 3,
+  "repetitions": 12,
+  "methods": {
+    "heuristic": {
+      "1": {
+        "batch_size": 1,
+        "batch_p50_ms": 0.07743301102891564,
+        "batch_p95_ms": 0.08327695250045508,
+        "texts_per_second": 12884.882158024195,
+        "process_cuda_peak_allocated_bytes": 873960960
+      },
+      "8": {
+        "batch_size": 8,
+        "batch_p50_ms": 1.4830669824732468,
+        "batch_p95_ms": 1.8100193119607866,
+        "texts_per_second": 5156.035890463484,
+        "process_cuda_peak_allocated_bytes": 873960960
+      }
+    },
+    "frozen_logistic": {
+      "1": {
+        "batch_size": 1,
+        "batch_p50_ms": 5.443803005618975,
+        "batch_p95_ms": 5.56465309637133,
+        "texts_per_second": 183.13095888391567,
+        "process_cuda_peak_allocated_bytes": 883751936
+      },
+      "8": {
+        "batch_size": 8,
+        "batch_p50_ms": 15.434860993991606,
+        "batch_p95_ms": 16.41275106667308,
+        "texts_per_second": 514.4537659904482,
+        "process_cuda_peak_allocated_bytes": 889474048
+      }
+    },
+    "bert_finetuned": {
+      "1": {
+        "batch_size": 1,
+        "batch_p50_ms": 4.658220990677364,
+        "batch_p95_ms": 4.849228047532961,
+        "texts_per_second": 213.79934768996688,
+        "process_cuda_peak_allocated_bytes": 883751936
+      },
+      "8": {
+        "batch_size": 8,
+        "batch_p50_ms": 14.881465001963079,
+        "batch_p95_ms": 15.570303803542629,
+        "texts_per_second": 536.7568550996159,
+        "process_cuda_peak_allocated_bytes": 889474048
+      }
+    }
+  },
+  "memory_note": "Pico CUDA do processo com ambos encoders residentes; não é memória isolada por método. CPU não medida."
+}

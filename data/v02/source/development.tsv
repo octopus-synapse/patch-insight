@@ -1,0 +1,32 @@
+10000	natural,short	Investiguei o travamento.	Investigação realizada sem efeito, contexto ou meio explícitos.
+10100	natural,method	Examinei a autenticação usando rastreamento distribuído.	Objeto da investigação não é cenário; técnica explícita.
+11000	natural,context	Na equipe de catálogo, analisei os chamados recorrentes.	Equipe é contexto; analisar não afirma solução.
+11100	natural,method	Durante a troca de fornecedor, comparei os contratos por meio de uma matriz de requisitos.	Circunstância e procedimento explícitos; sem entrega.
+10010	natural,result	Entreguei o manual de operação.	Entrega identificável sem medida.
+10110	natural,result	Publiquei o pacote com GitHub Actions; o download ficou disponível.	Ferramenta ligada à execução e efeito explícito.
+11111	natural,quantified	No serviço de busca, revisei o índice com SQL e a espera caiu 18%.	Cenário, ação, ferramenta, efeito e medida.
+11011	natural,quantified	Na central de suporte, reorganizei a fila. A espera caiu de 40 para 15 minutos.	Reorganização é ação; sem meio separado declarado.
+00000	adversarial,version	Python 3.11, React 19 e OAuth 2.0.	Lista de ferramentas e versões não descreve método nem medida.
+00000	adversarial,date	2025. Ticket INC-821.	Ano e identificador sem referente mensurável.
+00001	adversarial,volume	Doze relatórios por semana.	Quantidade por extenso com referente; não afirma ação ou entrega.
+01001	natural,tenure	Trabalho há quatro anos na área de dados.	Duração e domínio; contribuição vaga não é ação concreta.
+00000	adversarial,vague	Profissional proativo, apaixonado por inovação e resultados.	Alegação genérica não constitui efeito identificável.
+00000	adversarial,negation	Não corrigi o defeito.	Ação negada; defeito isolado é objeto, sem cenário.
+00101	adversarial,future	Pretendo reduzir o tempo em 25% usando Redis.	Intenção não é realização; meio e medida permanecem explícitos.
+10010	adversarial,negation	Não publiquei o guia; entreguei o mapa de navegação.	Negação local; a segunda oração afirma entrega.
+00100	adversarial,nominal	Revisão por pares como abordagem.	Método nominal admitido pelo guia.
+00010	natural,impersonal	O acesso foi restabelecido.	Efeito explícito sem autoria ou números.
+00011	natural,impersonal	A taxa de falhas caiu 12%.	Efeito e medida sem contribuição pessoal.
+01000	natural,context	O time de integração enfrentava indisponibilidade frequente.	Equipe e problema; não afirma mudança.
+11100	natural,reordered	Com entrevistas semiestruturadas, investiguei a desistência no portal de cursos.	Meio antes da ação; portal explicita cenário.
+10100	natural,informal	Fui atrás da causa do erro olhando os logs com Python.	Ação investigativa concreta e meio explícito; sem conclusão.
+11010	natural,passive	Na área de faturamento, fui responsável pela entrega do novo catálogo.	Entrega atribuída à pessoa; área é contexto.
+00000	adversarial,vague	Participei de iniciativas estratégicas com excelentes resultados.	Atividade e resultado genéricos, sem contribuição identificável.
+10001	adversarial,volume	Revisei 8 documentos.	Volume de revisão não demonstra entrega ou efeito.
+10101	adversarial,volume	Validei 200 amostras usando comparação manual.	Validação realizada, técnica e volume; sem resultado afirmado.
+10010	natural,qualitative	Corrigi o cadastro e o erro deixou de ocorrer.	Mudança qualitativa identificável sem números.
+00000	adversarial,question	Você implementou o monitoramento?	Pergunta não afirma realização.
+00000	adversarial,conditional	Se tivesse revisado o contrato, teria evitado a falha.	Contrafactual sem contribuição realizada.
+01000	adversarial,future	No laboratório, vou investigar as divergências.	Cenário explícito persiste na intenção futura.
+11110	natural,multiclause	Na plataforma de assinatura havia duplicatas. Investiguei a origem com consultas SQL; as duplicatas deixaram de aparecer.	Problema, investigação, meio e mudança explícitos.
+00010	adversarial,result_without_action	Agora o painel está disponível para consulta.	Estado de entrega disponível, sem autoria ou medida.

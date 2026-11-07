@@ -32,15 +32,15 @@ class Component(StrictModel):
 
 
 class Versions(StrictModel):
-    schema_version: Literal["0.1.0"] = SCHEMA_VERSION
+    schema_version: Literal["0.2.0"] = SCHEMA_VERSION
     model_version: str
-    rules_version: Literal["0.1.0"] = RULES_VERSION
+    rules_version: Literal["0.2.0"] = RULES_VERSION
 
 
 class Prediction(StrictModel):
     text: str
     components: dict[str, Component]
-    structures: list[Literal["XYZ", "STAR", "Action–Result", "Action–Technology"]]
+    structures: list[Literal["XYZ", "STAR", "Action–Result", "Action–Technology", "Action–Method"]]
     task: State
     technologies: list[str]
     diagnostics: list[str]
@@ -48,7 +48,7 @@ class Prediction(StrictModel):
     tokens: int | None = Field(default=None, ge=0)
     versions: Versions
     backend: Literal["heuristic", "bert"]
-    score_kind: Literal["binary_rule", "sigmoid_uncalibrated"]
+    score_kind: Literal["binary_rule", "sigmoid_uncalibrated", "temperature_scaled_experimental"]
 
     @model_validator(mode="after")
     def labels_complete(self):

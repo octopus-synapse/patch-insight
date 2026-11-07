@@ -61,13 +61,20 @@ class BertPredictor:
         return logits.sigmoid().cpu().tolist()
 
     def predict(self, text):
-        text = normalize(text)
-        token_count = len(self.tokenizer(text, truncation=False)["input_ids"])
-        truncated = token_count > self.metadata["max_length"]
-        probabilities = self.score_batch([text])[0]
-        states, scores = {}, {}
-        for label, prob, threshold in zip(LABELS, probabilities, self.metadata["thresholds"]):
-            state = "present" if prob >= threshold else ("unknown" if truncated else "absent")
-            states[label] = state
-            scores[label] = None if state == "unknown" else prob
-        return scores, states, truncated, token_count
+        return self.predict_many([text])[0]
+
+    def predict_many(self, texts):
+        if not texts:
+            return []
+        texts = [normalize(t) for t in texts]
+        counts = [len(ids) for ids in self.tokenizer(texts, truncation=False)["input_ids"]]
+        results = []
+        for probabilities, token_count in zip(self.score_batch(texts), counts):
+            truncated = token_count > self.metadata["max_length"]
+            states, scores = {}, {}
+            for label, prob, threshold in zip(LABELS, probabilities, self.metadata["thresholds"]):
+                state = "present" if prob >= threshold else ("unknown" if truncated else "absent")
+                states[label] = state
+                scores[label] = None if state == "unknown" else prob
+            results.append((scores, states, truncated, token_count))
+        return results

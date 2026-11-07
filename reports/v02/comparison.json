@@ -1,0 +1,231 @@
+{
+  "source_sha256": {
+    "historical": "f13f28eece03c7a9367698d1ac19ffb4cc7aac85db7b20fddd6268885dd6406a",
+    "test": "145caee680e8de41dfa16f27a685a3a678b58c4b26478067f51e82b507f6fdad"
+  },
+  "directions": {
+    "macro_f1": "max",
+    "micro_f1": "max",
+    "exact_match": "max",
+    "hamming_loss": "min",
+    "macro_average_precision": "max",
+    "macro_roc_auc": "max",
+    "macro_mcc": "max",
+    "mean_binary_brier": "min",
+    "mean_binary_log_loss": "min"
+  },
+  "datasets": {
+    "historical": {
+      "n": 60,
+      "methods": {
+        "heuristic": {
+          "macro_f1": 0.6791489361702128,
+          "micro_f1": 0.7633587786259542,
+          "exact_match": 0.3333333333333333,
+          "hamming_loss": 0.20666666666666667,
+          "macro_average_precision": 0.8248484848484848,
+          "macro_roc_auc": 0.809090909090909,
+          "macro_mcc": 0.6331355092029024,
+          "mean_binary_brier": 0.20666666666666667,
+          "mean_binary_log_loss": 3.331073180531391
+        },
+        "frozen_logistic": {
+          "macro_f1": 0.9888253968253968,
+          "micro_f1": 0.9878048780487805,
+          "exact_match": 0.9333333333333333,
+          "hamming_loss": 0.013333333333333334,
+          "macro_average_precision": 1.0,
+          "macro_roc_auc": 1.0,
+          "macro_mcc": 0.9731698608453658,
+          "mean_binary_brier": 0.00887946007497595,
+          "mean_binary_log_loss": 0.02965192071338393
+        },
+        "bert_finetuned": {
+          "macro_f1": 0.9911005961711339,
+          "micro_f1": 0.9908256880733946,
+          "exact_match": 0.95,
+          "hamming_loss": 0.01,
+          "macro_average_precision": 1.0,
+          "macro_roc_auc": 1.0,
+          "macro_mcc": 0.9799051522352762,
+          "mean_binary_brier": 0.03831968082832739,
+          "mean_binary_log_loss": 0.19410858738420056
+        }
+      },
+      "reference": "sintético; mesma IA autora e revisora",
+      "ranking": {
+        "macro_f1": [
+          "bert_finetuned",
+          "frozen_logistic",
+          "heuristic"
+        ],
+        "micro_f1": [
+          "bert_finetuned",
+          "frozen_logistic",
+          "heuristic"
+        ],
+        "exact_match": [
+          "bert_finetuned",
+          "frozen_logistic",
+          "heuristic"
+        ],
+        "hamming_loss": [
+          "bert_finetuned",
+          "frozen_logistic",
+          "heuristic"
+        ],
+        "macro_average_precision": [
+          "frozen_logistic",
+          "bert_finetuned",
+          "heuristic"
+        ],
+        "macro_roc_auc": [
+          "frozen_logistic",
+          "bert_finetuned",
+          "heuristic"
+        ],
+        "macro_mcc": [
+          "bert_finetuned",
+          "frozen_logistic",
+          "heuristic"
+        ],
+        "mean_binary_brier": [
+          "frozen_logistic",
+          "bert_finetuned",
+          "heuristic"
+        ],
+        "mean_binary_log_loss": [
+          "frozen_logistic",
+          "bert_finetuned",
+          "heuristic"
+        ]
+      }
+    },
+    "test": {
+      "n": 36,
+      "methods": {
+        "heuristic": {
+          "macro_f1": 0.691048951048951,
+          "micro_f1": 0.7027027027027027,
+          "exact_match": 0.3055555555555556,
+          "hamming_loss": 0.18333333333333332,
+          "macro_average_precision": 0.7440764790764791,
+          "macro_roc_auc": 0.7851515151515152,
+          "macro_mcc": 0.6538496468102492,
+          "mean_binary_brier": 0.18333333333333332,
+          "mean_binary_log_loss": 2.9549842843452883
+        },
+        "frozen_logistic": {
+          "macro_f1": 0.6195621366504097,
+          "micro_f1": 0.711864406779661,
+          "exact_match": 0.3055555555555556,
+          "hamming_loss": 0.18888888888888888,
+          "macro_average_precision": 0.8401363583558913,
+          "macro_roc_auc": 0.8733322510822511,
+          "macro_mcc": 0.5682419918647319,
+          "mean_binary_brier": 0.16010723790970832,
+          "mean_binary_log_loss": 0.853996945277067
+        },
+        "bert_finetuned": {
+          "macro_f1": 0.5583710407239819,
+          "micro_f1": 0.6379310344827587,
+          "exact_match": 0.25,
+          "hamming_loss": 0.23333333333333334,
+          "macro_average_precision": 0.776780168309343,
+          "macro_roc_auc": 0.8258551587301588,
+          "macro_mcc": 0.4626239339618895,
+          "mean_binary_brier": 0.16481213328826325,
+          "mean_binary_log_loss": 0.5052829993297918
+        },
+        "bert_finetuned_temperature": {
+          "macro_f1": 0.5583710407239819,
+          "micro_f1": 0.6379310344827587,
+          "exact_match": 0.25,
+          "hamming_loss": 0.23333333333333334,
+          "macro_average_precision": 0.776780168309343,
+          "macro_roc_auc": 0.8258551587301588,
+          "macro_mcc": 0.4626239339618895,
+          "mean_binary_brier": 0.1647451937300374,
+          "mean_binary_log_loss": 0.5051296116716306
+        },
+        "frozen_logistic_temperature": {
+          "macro_f1": 0.6195621366504097,
+          "micro_f1": 0.711864406779661,
+          "exact_match": 0.3055555555555556,
+          "hamming_loss": 0.18888888888888888,
+          "macro_average_precision": 0.8401363583558913,
+          "macro_roc_auc": 0.8733322510822511,
+          "macro_mcc": 0.5682419918647319,
+          "mean_binary_brier": 0.13551575028636434,
+          "mean_binary_log_loss": 0.4291855522239792
+        }
+      },
+      "reference": "sintético; mesma IA autora e revisora",
+      "ranking": {
+        "macro_f1": [
+          "heuristic",
+          "frozen_logistic",
+          "frozen_logistic_temperature",
+          "bert_finetuned",
+          "bert_finetuned_temperature"
+        ],
+        "micro_f1": [
+          "frozen_logistic",
+          "frozen_logistic_temperature",
+          "heuristic",
+          "bert_finetuned",
+          "bert_finetuned_temperature"
+        ],
+        "exact_match": [
+          "heuristic",
+          "frozen_logistic",
+          "frozen_logistic_temperature",
+          "bert_finetuned",
+          "bert_finetuned_temperature"
+        ],
+        "hamming_loss": [
+          "heuristic",
+          "frozen_logistic",
+          "frozen_logistic_temperature",
+          "bert_finetuned",
+          "bert_finetuned_temperature"
+        ],
+        "macro_average_precision": [
+          "frozen_logistic",
+          "frozen_logistic_temperature",
+          "bert_finetuned",
+          "bert_finetuned_temperature",
+          "heuristic"
+        ],
+        "macro_roc_auc": [
+          "frozen_logistic",
+          "frozen_logistic_temperature",
+          "bert_finetuned",
+          "bert_finetuned_temperature",
+          "heuristic"
+        ],
+        "macro_mcc": [
+          "heuristic",
+          "frozen_logistic",
+          "frozen_logistic_temperature",
+          "bert_finetuned",
+          "bert_finetuned_temperature"
+        ],
+        "mean_binary_brier": [
+          "frozen_logistic_temperature",
+          "frozen_logistic",
+          "bert_finetuned_temperature",
+          "bert_finetuned",
+          "heuristic"
+        ],
+        "mean_binary_log_loss": [
+          "frozen_logistic_temperature",
+          "bert_finetuned_temperature",
+          "bert_finetuned",
+          "frozen_logistic",
+          "heuristic"
+        ]
+      }
+    }
+  }
+}

@@ -11,12 +11,12 @@ ALLOW = ["src", "tests", "data", "configs", "scripts", "notebooks", "docs", "lic
          ".dockerignore", "Dockerfile", "reports/data-audit.json", "reports/development",
          "reports/verification.json", "reports/training", "reports/final",
          "reports/clean-room.json", "reports/publication.json", "reports/docker.json",
-         "reports/pytest.xml", "reports/pytest-initial.xml", "artifacts/.gitkeep"]
+         "reports/v02", "reports/v02-tests.xml", "reports/pytest.xml", "reports/pytest-initial.xml", "artifacts/.gitkeep"]
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=ROOT / "artifacts/patchinsight-source-0.1.0.tar.gz")
+    parser.add_argument("--output", type=Path, default=ROOT / "artifacts/patchinsight-source-0.2.0.tar.gz")
     args = parser.parse_args()
     paths = []
     for name in ALLOW + (["uv.lock"] if (ROOT / "uv.lock").exists() else []):

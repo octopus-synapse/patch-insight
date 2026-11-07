@@ -40,8 +40,8 @@
       "additionalProperties": false,
       "properties": {
         "schema_version": {
-          "const": "0.1.0",
-          "default": "0.1.0",
+          "const": "0.2.0",
+          "default": "0.2.0",
           "title": "Schema Version",
           "type": "string"
         },
@@ -50,8 +50,8 @@
           "type": "string"
         },
         "rules_version": {
-          "const": "0.1.0",
-          "default": "0.1.0",
+          "const": "0.2.0",
+          "default": "0.2.0",
           "title": "Rules Version",
           "type": "string"
         }
@@ -82,7 +82,8 @@
           "XYZ",
           "STAR",
           "Action–Result",
-          "Action–Technology"
+          "Action–Technology",
+          "Action–Method"
         ],
         "type": "string"
       },
@@ -137,7 +138,8 @@
     "score_kind": {
       "enum": [
         "binary_rule",
-        "sigmoid_uncalibrated"
+        "sigmoid_uncalibrated",
+        "temperature_scaled_experimental"
       ],
       "title": "Score Kind",
       "type": "string"

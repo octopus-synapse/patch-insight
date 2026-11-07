@@ -12,7 +12,7 @@ jobs:
       - name: Require resolved lock before claiming reproducibility
         run: test -f uv.lock
       - run: uv sync --frozen --extra dev
-      - run: uv run --frozen pytest tests/test_core.py tests/test_contract.py
+      - run: uv run --frozen pytest tests/test_core.py tests/test_contract.py tests/test_v02.py
       - run: uv run --frozen python -m patchinsight.data
       - run: uv build
   ml-smoke:
@@ -25,4 +25,4 @@ jobs:
           python-version: '3.11'
       - run: test -f uv.lock
       - run: uv sync --frozen --extra ml --extra dev
-      - run: HF_HUB_OFFLINE=1 uv run --frozen pytest tests/test_model.py -m ml
+      - run: HF_HUB_OFFLINE=1 uv run --frozen pytest tests/test_model.py tests/test_assessment.py tests/test_v02.py -m 'not real_model'

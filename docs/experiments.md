@@ -1,3 +1,7 @@
+> Protocolo histórico da v0.1. A avaliação exploratória posterior, sem retreino,
+> tem protocolo próprio em [data/v02/README.md](../data/v02/README.md) e resultados
+> em [v02.md](v02.md). A métrica primária e a seleção originais não foram alteradas.
+
 # Protocolo experimental 0.1
 
 Pergunta: fine-tuning completo de BERTimbau melhora a classificação de cinco

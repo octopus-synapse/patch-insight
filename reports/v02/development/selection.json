@@ -1,0 +1,8 @@
+{
+  "suite_manifest_sha256": "6a3b01f29aa7aa3cc0a34be30da0dbb5f1a28bb64a54f85a65ae9a7689eb930d",
+  "frozen_sha256": "07bf28b9c3349024949f89af59c3a8e3e0a126527d3de57b9c2b69064228e8a2",
+  "sha256": {
+    "bert_finetuned-policy.json": "0b144015e0bcb2808ab507b10018fd38ca5e8f5184bca7b110975135410638a9",
+    "frozen_logistic-policy.json": "bae8c8ae9687001a610b16030cd25c98c8ceefd94732055bca54008230674a1e"
+  }
+}

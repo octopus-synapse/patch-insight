@@ -1,5 +1,34 @@
 # PatchInsight
 
+**v0.2 implementada localmente: avaliação ampliada, batch, Action–Method e demo.**
+Os checkpoints da v0.1 foram avaliados em 36 textos novos, escritos, anotados e
+revisados pelo próprio assistente IA, sem revisão humana. Macro-F1: heurísticas
+**0,6910**, encoder congelado + regressão **0,6196**, BERT ajustado **0,5584**.
+O resultado próximo do teto no teste original não se sustenta neste desafio.
+A regressão tem melhor Average Precision; após temperatura experimental, também
+menor Brier/log loss entre as variantes avaliadas. Não há validação em currículos reais.
+
+[Resultados e comandos da v0.2](docs/v02.md) · [Novo teste](reports/v02/test/README.md)
+· [Análise de erros](reports/v02/error-analysis.md) · [Revisão por IA](docs/v02-data-review.md).
+Software/schema/regras: 0.2.0; checkpoint preservado: 0.1.0. A v0.2 não foi
+publicada no GitHub ou no Hub nesta rodada.
+
+```bash
+# Demo local com o checkpoint real; abrir http://127.0.0.1:8765
+uv run --frozen --extra ml patchinsight serve --model artifacts/model --device cuda
+# Inferência JSONL em lote; usar --backend heuristic para selecionar regras
+uv run --frozen --extra ml patchinsight batch --model artifacts/model --input exemplos.jsonl
+```
+
+A interface compara modelos por F1, AP, Hamming, MCC, ROC-AUC, Brier e log loss.
+Calibração é opt-in; nenhum cutoff cumpriu a meta de abstenção em desenvolvimento,
+por isso a política experimental mantém abstenção desativada. Nenhum serviço pago.
+
+As seções abaixo descrevem o experimento original da v0.1, cujos dados e
+relatórios finais permanecem intactos. Para reproduzir exatamente o software
+daquela release, usar a tag `v0.1.0`; na árvore atual a saída JSON segue o schema 0.2.0.
+
+
 Classificação multilabel de componentes em descrições profissionais em pt-BR:
 `action`, `context`, `method`, `result` e `measurement`. O projeto separa a
 detecção semântica por encoder das regras que reconhecem XYZ, STAR,

@@ -81,6 +81,8 @@ def structural_rules(text: str, states: dict[str, str]):
         structures.append("Action–Result")
     if present("action") and techs:
         structures.append("Action–Technology")
+    if present("action") and present("method"):
+        structures.append("Action–Method")
     diagnostics = [f"missing_{k}" for k in LABELS if states[k] == "absent"]
     diagnostics += [f"unknown_{k}" for k in LABELS if states[k] == "unknown"]
     if task == "unknown":

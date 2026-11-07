@@ -63,3 +63,9 @@ def test_real_checkpoint():
     assert predictor.metadata["selected_epoch"] >= 1
     scores, _, _, _ = predictor.predict("Revisei as consultas com SQL e reduzi a espera em 20%.")
     assert len(scores) == 5
+    examples = ["Revisei as consultas com SQL.", "OAuth 2.0"]
+    batched = predictor.predict_many(examples)
+    for text, result in zip(examples, batched):
+        single = predictor.predict(text)
+        assert result[1:] == single[1:]
+        assert list(result[0].values()) == pytest.approx(list(single[0].values()), abs=1e-5)

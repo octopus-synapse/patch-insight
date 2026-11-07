@@ -1,0 +1,26 @@
+{
+  "temperature": 4.0,
+  "confidence_cutoff": null,
+  "target_development_error": 0.05,
+  "minimum_development_coverage": 0.5,
+  "unit": "component_decision",
+  "thresholds": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "warning": "Exploratório; erro observado em desenvolvimento não é garantia de risco.",
+  "labels": [
+    "action",
+    "context",
+    "method",
+    "result",
+    "measurement"
+  ],
+  "model_manifest_sha256": "8aec42f49e157ee64bd77fb82656b848d856cd29c0ec0b30fba41d9884f92720",
+  "development_sha256": "3a039e23c089234b20943d6883afa6823e834ce58dc95ce410c743143c890787",
+  "method": "frozen_logistic",
+  "policy_id": "v02-frozen_logistic"
+}

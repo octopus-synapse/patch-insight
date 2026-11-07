@@ -30,7 +30,7 @@ def test_cli_json_and_stderr():
     assert result.returncode == 0, result.stderr
     parsed = Prediction.model_validate_json(result.stdout)
     assert set(parsed.components) == set(LABELS)
-    assert parsed.versions.schema_version == "0.1.0"
+    assert parsed.versions.schema_version == "0.2.0"
     invalid = subprocess.run([sys.executable, "-m", "patchinsight", "predict", "--text", " "],
                              text=True, capture_output=True)
     assert invalid.returncode == 2
