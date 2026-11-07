@@ -66,11 +66,10 @@ def main():
                   f"Época selecionada por validação: {metadata['selected_epoch']}.",
                   "Contagens, suportes e ambiente completos em benchmark.json e patchinsight.json."]
         card = card[:start] + "\n".join(lines) + card[end:]
-        card += ("\n\nTreino executado em GPU local NVIDIA RTX A1000 6 GB, Python 3.11.14. "
-                 "Não houve sessão Kaggle/Colab nesta execução nem contratação de computação. "
-                 "O PyTorch avisou sobre atenção backward não determinística; não se alega "
-                 "identidade bit a bit entre retreinos. O ganho observado é pequeno e não "
-                 "comprova superioridade em currículos reais.\n\n"
+        card += ("\n\nO ambiente efetivo está registrado em `patchinsight.json` e, quando "
+                 "incluído, em `training-environment.json`. Seeds não garantem identidade "
+                 "bit a bit entre hardwares. A interpretação depende da composição do "
+                 "teste; resultados sintéticos não comprovam generalização para currículos reais.\n\n"
                  "O benchmark referencia o manifest original do treino, preservado em "
                  "`training-manifest.json`; `manifest.json` cobre o bundle publicado, "
                  "incluindo esta card atualizada.\n")
