@@ -68,3 +68,12 @@ Não foram enviados ao GitHub/Hub nem transformados em release pública nesta
 rodada. O checkpoint avaliado continua o da v0.1. Uma publicação posterior deve
 preservar essa distinção, os hashes históricos e a autoria/revisão por IA da
 nova suite. A demo é local, sem hospedagem externa ou Space.
+
+## Publicação efetiva da 0.2
+
+A release GitHub v0.2.0 e a imagem pública GHCR foram publicadas pelo workflow
+42402073389, concluído com sucesso. O Hugging Face foi atualizado pela sessão
+local autorizada e as revisões foram reutilizadas após conferir o SHA do código.
+Ambos os repos têm a tag v0.2.0. Os pesos permanecem 0.1.0.
+[Procedimento atual](releases.md); hashes em `reports/releases/` e assets da release.
+O parágrafo anterior sobre ausência de publicação registra o estado de preparação.

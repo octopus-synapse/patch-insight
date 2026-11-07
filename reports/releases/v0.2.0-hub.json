@@ -1,0 +1,15 @@
+{
+  "tag": "v0.2.0",
+  "code_commit": "132ec004016703500d3c872eb7a7eaa41d5b3405",
+  "checkpoint_version": "0.1.0",
+  "repositories": {
+    "dataset": {
+      "repo": "enzoferracini/patchinsight-synthetic-ptbr",
+      "revision": "25d0ce671f6ca1479f22990d26f6ae0505459754"
+    },
+    "model": {
+      "repo": "enzoferracini/patchinsight-bertimbau-ptbr",
+      "revision": "76c0aec31154ef11eb2e7baeaa7ca295ded2c5c2"
+    }
+  }
+}

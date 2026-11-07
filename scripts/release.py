@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -24,23 +25,43 @@ def main():
     if args.tag != 'v'+version: raise ValueError('tag and package version differ')
     config=json.loads((ROOT/'configs/release.json').read_text())
     commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+    if args.publish and subprocess.check_output(['git','status','--porcelain'],text=True).strip():
+        raise ValueError('commit reviewed changes before publication')
     out=args.output
     if out.exists(): raise ValueError('use a fresh staging directory')
     out.mkdir(parents=True)
     snapshot_download(config['model_repo'],revision=config['model_revision'],local_dir=out/'model')
     shutil.rmtree(out/'model/.cache',ignore_errors=True)
-    verify_bundle(out/'model')
-    shutil.copytree(ROOT/'data',out/'dataset',ignore=shutil.ignore_patterns('v03'))
+    metadata=verify_bundle(out/'model')
+    if metadata['model_version'] != config['checkpoint_version']: raise ValueError('checkpoint version mismatch')
+    shutil.copytree(ROOT/'data',out/'dataset',ignore=lambda directory,names: [n for n in names if re.fullmatch(r'v[0-9]+',n) and n not in config['dataset_versions']])
+    evaluation=config['evaluation_version']
+    evaluation_root=ROOT/'reports'/evaluation
+    result_path=evaluation_root/'test/results.json'
+    if not result_path.exists(): result_path=evaluation_root/'test.json'
+    results=json.loads(result_path.read_text())['methods']
     for kind in ('model','dataset'):
         target=out/kind
-        shutil.copytree(ROOT/'reports/v02',target/'evaluations/v02')
+        shutil.copytree(evaluation_root,target/'evaluations'/evaluation)
         shutil.copytree(ROOT/'docs',target/'project-docs',ignore=shutil.ignore_patterns('images'))
         card=target/'README.md'
-        text=card.read_text().split('\n<!-- software-release -->')[0]
-        text+=f'\n<!-- software-release -->\n## Software {args.tag}\n\nCheckpoint: {config["checkpoint_version"]}; weights unchanged in this release.\n'
-        text+='New evaluation: 36 synthetic texts, authored and reviewed by the same AI; no human review.\nMacro-F1: heuristics 0.6910; frozen regression 0.6196; fine-tuned BERT 0.5584.\nSee [evaluation](evaluations/v02/test/README.md) and [protocol](project-docs/v02.md).\n'
+        text=card.read_text().split('\n<!-- software-release -->')[0].replace('../docs/', 'project-docs/')
+        text+=f'\n<!-- software-release -->\n## Software {args.tag}\n\nCheckpoint: {config["checkpoint_version"]}; See the pinned checkpoint revision in the release manifest.\n'
+        text+='Synthetic evaluation authored and reviewed by the same AI; no human review.\n\n| Method | Macro-F1 |\n|---|---:|\n'
+        for name,metrics in results.items():
+            text+=f"| {name} | {metrics['macro_f1']:.4f} |\n"
+        text+=f'\nSee evaluations/{evaluation} and project-docs/{evaluation}.md.\n'
         if kind=='dataset':
-            text=text.replace('configs:\n','configs:\n- config_name: evaluation_v02\n  data_files:\n  - split: validation\n    path: v02/development.jsonl\n  - split: test\n    path: v02/test.jsonl\n',1)
+            extra=[]
+            for dataset_version in config['dataset_versions']:
+                extra.append(f'- config_name: evaluation_{dataset_version}')
+                extra.append('  data_files:')
+                for split,filename in [('train','train'),('validation','validation'),('calibration','calibration'),('test','test')]:
+                    if not (target/dataset_version/(filename+'.jsonl')).exists():
+                        if split=='validation': filename='development'
+                        else: continue
+                    extra.extend([f'  - split: {split}',f'    path: {dataset_version}/{filename}.jsonl'])
+            text=text.replace('configs:\n','configs:\n'+'\n'.join(extra)+'\n',1)
         card.write_text(text)
         (target/'software-release.json').write_text(json.dumps({'tag':args.tag,'code_commit':commit,'checkpoint_version':config['checkpoint_version']},indent=2)+'\n')
     write_manifest(out/'model')

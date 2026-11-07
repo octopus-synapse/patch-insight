@@ -1,0 +1,28 @@
+{
+  "tag": "v0.2.0",
+  "code_commit": "132ec004016703500d3c872eb7a7eaa41d5b3405",
+  "checkpoint_version": "0.1.0",
+  "repositories": {
+    "dataset": {
+      "repo": "enzoferracini/patchinsight-synthetic-ptbr",
+      "revision": "25d0ce671f6ca1479f22990d26f6ae0505459754"
+    },
+    "model": {
+      "repo": "enzoferracini/patchinsight-bertimbau-ptbr",
+      "revision": "76c0aec31154ef11eb2e7baeaa7ca295ded2c5c2"
+    }
+  },
+  "workflow_run": "https://github.com/octopus-synapse/patch-insight/actions/runs/42402073389",
+  "workflow_conclusion": "success",
+  "github_release": "https://github.com/octopus-synapse/patch-insight/releases/tag/v0.2.0",
+  "ghcr_visibility": "public",
+  "anonymous_manifest_status": 200,
+  "downloaded_asset_checksums": "passed",
+  "image_digests": [
+    "patchinsight@sha256:74c3eee1740d83d543b4966d60b666f5e124a3f8fbf26ab3176f3cba32c0ece6",
+    "ghcr.io/octopus-synapse/patch-insight@sha256:74c3eee1740d83d543b4966d60b666f5e124a3f8fbf26ab3176f3cba32c0ece6"
+  ],
+  "future_hf_token_secret_configured": false,
+  "published_image_offline_inference": "passed",
+  "container_prediction_sha256": "ace72d6e1ed754666b16d547d118f6accfdfdfc202e67a9969cecab40d49e899"
+}

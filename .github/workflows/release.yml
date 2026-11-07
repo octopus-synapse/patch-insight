@@ -40,6 +40,21 @@ jobs:
         run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
       - run: uv lock --check
       - run: uv sync --frozen --extra ml --extra dev
+      - name: Verify Hub access or previously completed publication
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          uv run --frozen --extra ml python - <<'PYCODE'
+          import os,json,subprocess
+          from pathlib import Path
+          from huggingface_hub import hf_hub_download
+          if not os.environ.get('HF_TOKEN'):
+              config=json.loads(Path('configs/release.json').read_text())
+              commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+              for kind in ('model','dataset'):
+                  path=hf_hub_download(config[kind+'_repo'],'software-release.json',repo_type=kind,revision=os.environ['RELEASE_TAG'])
+                  assert json.loads(Path(path).read_text())['code_commit']==commit, 'Published Hub tag mismatch'
+          PYCODE
       - name: Download pinned checkpoint and stage reviewed publication
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
@@ -76,10 +91,28 @@ jobs:
           cp artifacts/image-digests.json dist/
           cp artifacts/release-tests.xml dist/
           cp artifacts/patchinsight-source-*.tar.gz dist/
-          sha256sum dist/* > artifacts/SHA256SUMS
+          (cd dist && sha256sum *) > artifacts/SHA256SUMS
           cp artifacts/SHA256SUMS dist/
           gh release view "$RELEASE_TAG" >/dev/null 2>&1 || gh release create "$RELEASE_TAG" --verify-tag --generate-notes --draft
-          gh release upload "$RELEASE_TAG" dist/* --clobber
+          if gh release view "$RELEASE_TAG" --json isDraft --jq '.isDraft' | grep -qx false; then
+            mkdir -p artifacts/existing-release
+            gh release download "$RELEASE_TAG" --pattern SHA256SUMS --dir artifacts/existing-release
+            cmp dist/SHA256SUMS artifacts/existing-release/SHA256SUMS
+          fi
+          uv run --frozen python - <<'PYCODE'
+          import subprocess,json,hashlib,os
+          from pathlib import Path
+          tag=os.environ['RELEASE_TAG']
+          assets=json.loads(subprocess.check_output(['gh','release','view',tag,'--json','assets']))['assets']
+          names={a['name'] for a in assets}
+          target=Path('artifacts/existing-release');target.mkdir(exist_ok=True)
+          for path in sorted(Path('dist').iterdir()):
+              if path.name in names:
+                  subprocess.run(['gh','release','download',tag,'--pattern',path.name,'--dir',str(target),'--clobber'],check=True)
+                  assert hashlib.sha256(path.read_bytes()).digest()==hashlib.sha256((target/path.name).read_bytes()).digest(), 'Existing release asset differs'
+              else:
+                  subprocess.run(['gh','release','upload',tag,str(path)],check=True)
+          PYCODE
           gh release edit "$RELEASE_TAG" --draft=false
       - name: Advance latest after successful publication
         run: |
