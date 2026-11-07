@@ -1,0 +1,7 @@
+{
+  "model_repo": "enzoferracini/patchinsight-bertimbau-ptbr",
+  "dataset_repo": "enzoferracini/patchinsight-synthetic-ptbr",
+  "model_revision": "f2fb6d8afac7979d754efd947f172c1105a9883c",
+  "checkpoint_version": "0.1.0",
+  "image": "ghcr.io/octopus-synapse/patch-insight"
+}
