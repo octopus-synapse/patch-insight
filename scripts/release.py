@@ -30,7 +30,7 @@ def main():
     snapshot_download(config['model_repo'],revision=config['model_revision'],local_dir=out/'model')
     shutil.rmtree(out/'model/.cache',ignore_errors=True)
     verify_bundle(out/'model')
-    shutil.copytree(ROOT/'data',out/'dataset')
+    shutil.copytree(ROOT/'data',out/'dataset',ignore=shutil.ignore_patterns('v03'))
     for kind in ('model','dataset'):
         target=out/kind
         shutil.copytree(ROOT/'reports/v02',target/'evaluations/v02')
